@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Ground Studs (Cleats) -->
+  <polygon points="12,47 15,47 13.5,52" fill="#C8FF00"/>
+  <polygon points="20,47 23,47 21.5,52" fill="#C8FF00"/>
+  <polygon points="28,47 31,47 29.5,51" fill="#C8FF00"/>
+  <polygon points="44,47 47,47 45.5,52" fill="#C8FF00"/>
+  <polygon points="50,47 53,47 51.5,52" fill="#C8FF00"/>
+  <!-- TPU Chassis Soleplate -->
+  <path d="M7 47C14 47 24 47.5 40 47.5H55C57 47.5 58 45.5 58 43.5H6C6 45 6.5 47 7 47Z" fill="#111111"/>
+  <!-- Aerodynamic Synthetic Upper with Low Profile Toe -->
+  <path d="M6 43.5C8 38 12 33 18 31L30 26C34 24 37 20 40 18C42 16 45 16 47 18C48 19 49 22 50 25L54 35C56 39 57 41 57 43.5H6Z" fill="#1C1C1C"/>
+  <!-- Dynamic Speed Ribs / Swirls (Lime & Hyper Blue) -->
+  <path d="M12 40C16 35 24 31 34 29" stroke="#C8FF00" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M16 42C20 37 28 34 38 32" stroke="#2457FF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M22 43C26 39 34 37 42 35" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Off-center Asymmetrical Lacing -->
+  <path d="M28 26L31 29M32 24L35 27M36 22L39 25" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- High Collar Dynamic Fit Sock -->
+  <path d="M39 19C40 16 43 14 46 14C48 14 50 16 50 19V23H41L39 19Z" fill="#2457FF"/>
+</svg>

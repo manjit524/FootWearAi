@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Flat Thin Leather Sole with Upturned Toe Hook -->
+  <path d="M5 34C6 38 9 42 14 44C24 45 42 45 54 44C56 44 57 43 57 41.5H12C8 41.5 6 38 5 34Z" fill="#111111"/>
+  <!-- Jutti Upper with Ornate Velvet & Metallic Thread -->
+  <path d="M5 34C6 31 9 32 11 36L18 39C24 40 32 38 35 32H44C47 32 49 34 50 37L55 41H14C9 39 6.5 36 5 34Z" fill="#221E1B"/>
+  <!-- Characteristic Upturned Curled Toe Tip (Nokh) -->
+  <path d="M5 34C4.5 32 6 29 8 28C9 28 9.5 29 8.5 31C7.8 32 7.2 33 6.8 35" stroke="#C8FF00" stroke-width="2" stroke-linecap="round"/>
+  <!-- Gold & Lime Zari Embroidery Motifs -->
+  <circle cx="20" cy="38" r="1.5" fill="#C8FF00"/>
+  <circle cx="25" cy="38" r="1.5" fill="#FF5C5C"/>
+  <circle cx="30" cy="37" r="1.5" fill="#C8FF00"/>
+  <!-- Scalloped Opening Collar Line -->
+  <path d="M18 39C22 36 28 35 34 32C37 32 42 34 46 34" stroke="#C8FF00" stroke-width="1.4" stroke-linecap="round"/>
+</svg>

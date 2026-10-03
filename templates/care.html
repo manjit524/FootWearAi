@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% block title %}Footwear Care & Longevity Laboratory — FootwearAI{% endblock %}
+
+{% block content %}
+<div class="space-y-12 pt-4">
+
+    <!-- Hero Header -->
+    <div class="relative bg-[#111111] rounded-3xl p-8 sm:p-12 text-white overflow-hidden border border-white/10 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#C8FF00]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl space-y-3">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-[#C8FF00] animate-pulse"></span>
+                <span class="text-[11px] font-mono font-bold tracking-widest uppercase text-[#C8FF00]">CARE LAB // PROTOCOL 04</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-display font-black tracking-tight leading-tight text-white">
+                Material Longevity & Restoration
+            </h1>
+            <p class="text-white/70 text-xs sm:text-sm leading-relaxed max-w-xl">
+                Protect your footwear investment. Scientific preservation protocols for calf leather, buttery suede, high-tensile engineered mesh, stiletto heels, and artisanal vegetable-tanned leathers.
+            </p>
+        </div>
+        <div class="relative z-10 flex items-center space-x-3 shrink-0">
+            <a href="/catalog" class="px-6 py-3.5 rounded-full bg-[#C8FF00] hover:bg-[#b8eb00] text-[#111111] font-display font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[#C8FF00]/30 transition-all inline-flex items-center space-x-2">
+                <span>Browse Styles &rarr;</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 4-Step Universal Routine -->
+    <div class="space-y-5">
+        <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-xl bg-black/5 flex items-center justify-center text-dark">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            </div>
+            <h2 class="text-2xl font-display font-bold text-[#111111] tracking-tight">The 4-Step Universal Routine</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="bg-white p-6 rounded-3xl border border-black/[0.08] shadow-sm space-y-3 hover:border-black/20 hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-2xl bg-[#111111] text-[#C8FF00] font-mono font-bold text-sm flex items-center justify-center border border-black/[0.08]">01</div>
+                <h3 class="font-display font-bold text-base text-[#111111]">Dry Debris Wipe</h3>
+                <p class="text-xs text-black/60 leading-relaxed">Always knock off loose dirt, dried mud, and street dust with a soft horsehair brush before introducing any moisture or foam.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-black/[0.08] shadow-sm space-y-3 hover:border-black/20 hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-2xl bg-[#111111] text-[#C8FF00] font-mono font-bold text-sm flex items-center justify-center border border-black/[0.08]">02</div>
+                <h3 class="font-display font-bold text-base text-[#111111]">Targeted Cleansing</h3>
+                <p class="text-xs text-black/60 leading-relaxed">Match cleaners strictly to material chemistry. Never machine-wash leather or submerge heat-bonded midsoles in boiling water.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-black/[0.08] shadow-sm space-y-3 hover:border-black/20 hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-2xl bg-[#C8FF00] text-[#111111] font-mono font-bold text-sm flex items-center justify-center border border-[#C8FF00]">03</div>
+                <h3 class="font-display font-bold text-base text-[#111111]">Nourish & Condition</h3>
+                <p class="text-xs text-black/60 leading-relaxed">Full-grain leather and traditional mojaris require natural oil or cream emulsions to prevent fibrous drying, stiffening, and cracking.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl border border-black/[0.08] shadow-sm space-y-3 hover:border-black/20 hover:shadow-md transition">
+                <div class="w-10 h-10 rounded-2xl bg-[#111111] text-[#C8FF00] font-mono font-bold text-sm flex items-center justify-center border border-black/[0.08]">04</div>
+                <h3 class="font-display font-bold text-base text-[#111111]">Shape & Air Storage</h3>
+                <p class="text-xs text-black/60 leading-relaxed">Insert aromatic cedar shoe trees to wick sweat moisture, neutralize odor bacteria, and maintain the factory toe-box contour.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Material-Specific Protocols -->
+    <div class="space-y-6">
+        <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-xl bg-black/5 flex items-center justify-center text-dark">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            </div>
+            <h2 class="text-2xl font-display font-bold text-[#111111] tracking-tight">Material-Specific Care Protocols</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- 1. Smooth Leather -->
+            <div class="bg-white p-7 rounded-3xl border border-black/[0.08] shadow-sm space-y-4 hover:border-black/20 hover:shadow-xl transition group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/static/images/icons/loafers.svg" class="w-9 h-9 object-contain" alt="Leather">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-[#111111]">Full-Grain & Calfskin</h3>
+                        <span class="text-[11px] font-mono text-black/40">OXFORDS, DERBIES, LOAFERS, CHELSEA</span>
+                    </div>
+                </div>
+                <ul class="text-xs text-black/70 space-y-2 leading-relaxed">
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Wipe down with a damp microfiber cloth after every 2 wears.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Apply lanolin-based leather balm every 6 to 8 weeks.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Buff vigorously with horsehair brush to awaken natural oils.</li>
+                    <li class="flex items-start text-[#FF5C5C] font-medium"><span class="font-bold mr-2">&times;</span>Avoid: Direct heat radiators or hair dryers (dries fiber glue).</li>
+                </ul>
+            </div>
+
+            <!-- 2. Suede & Nubuck -->
+            <div class="bg-white p-7 rounded-3xl border border-black/[0.08] shadow-sm space-y-4 hover:border-black/20 hover:shadow-xl transition group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/static/images/icons/boots.svg" class="w-9 h-9 object-contain" alt="Suede">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-[#111111]">Suede & Nubuck Leathers</h3>
+                        <span class="text-[11px] font-mono text-black/40">CHUKKA BOOTS, SUEDE LOAFERS, DESERT</span>
+                    </div>
+                </div>
+                <ul class="text-xs text-black/70 space-y-2 leading-relaxed">
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Never wipe with wet cloths; water leaves permanent rings.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Use a crepe rubber brush in one direction to raise nap.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Rub scuff stains with a dedicated rubber eraser block.</li>
+                    <li class="flex items-start text-[#2457FF] font-medium"><span class="font-bold mr-2">&check;</span>Pro Tip: Mist with fluoropolymer waterproof spray every 60 days.</li>
+                </ul>
+            </div>
+
+            <!-- 3. Canvas & Mesh -->
+            <div class="bg-white p-7 rounded-3xl border border-black/[0.08] shadow-sm space-y-4 hover:border-black/20 hover:shadow-xl transition group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/static/images/icons/sneakers.svg" class="w-9 h-9 object-contain" alt="Canvas">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-[#111111]">Canvas & Engineered Mesh</h3>
+                        <span class="text-[11px] font-mono text-black/40">RUNNING SHOES, LIFESTYLE, VANS, SNEAKERS</span>
+                    </div>
+                </div>
+                <ul class="text-xs text-black/70 space-y-2 leading-relaxed">
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Dilute gentle eco-detergent in lukewarm water with soft bristles.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Clean white rubber sidewalls with a melamine eraser sponge.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Remove laces and soak separately in soapy disinfectant.</li>
+                    <li class="flex items-start text-[#FF5C5C] font-medium"><span class="font-bold mr-2">&times;</span>Avoid: Tumble dryers; intense heat warps the EVA foam geometry.</li>
+                </ul>
+            </div>
+
+            <!-- 4. High Heels & Pumps -->
+            <div class="bg-white p-7 rounded-3xl border border-black/[0.08] shadow-sm space-y-4 hover:border-black/20 hover:shadow-xl transition group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/static/images/icons/heels.svg" class="w-9 h-9 object-contain" alt="Heels">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-[#111111]">High Heels & Stilettos</h3>
+                        <span class="text-[11px] font-mono text-black/40">STILETTOS, BLOCK HEELS, PLATFORMS, PUMPS</span>
+                    </div>
+                </div>
+                <ul class="text-xs text-black/70 space-y-2 leading-relaxed">
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Swap heel tips as soon as the inner steel pin becomes exposed.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Affix adhesive rubber traction pads to slick outsole leather.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Store each shoe in its own velvet sleeve to protect the thin stems.</li>
+                    <li class="flex items-start text-[#2457FF] font-medium"><span class="font-bold mr-2">&check;</span>Pro Tip: Stuff pointed toe-boxes with acid-free tissue.</li>
+                </ul>
+            </div>
+
+            <!-- 5. Artisanal Traditional Leather -->
+            <div class="bg-white p-7 rounded-3xl border border-black/[0.08] shadow-sm space-y-4 hover:border-black/20 hover:shadow-xl transition group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/static/images/icons/ethnic.svg" class="w-9 h-9 object-contain" alt="Ethnic">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-[#111111]">Ethnic Vegetable Leather</h3>
+                        <span class="text-[11px] font-mono text-black/40">PUNJABI JUTTIS, MOJARIS, KOLHAPURI CHAPPALS</span>
+                    </div>
+                </div>
+                <ul class="text-xs text-black/70 space-y-2 leading-relaxed">
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Rub mustard or castor oil on inner collar seam before first wear.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Maintain Kolhapuri leather flexibility with quarterly light oil coats.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Store metallic zardozi embroidery wrapped in pure cotton muslin.</li>
+                    <li class="flex items-start text-[#FF5C5C] font-medium"><span class="font-bold mr-2">&times;</span>Avoid: Heavy monsoon puddle exposure (raw leather harbors mildew).</li>
+                </ul>
+            </div>
+
+            <!-- 6. Cork, Jute & EVA Foam -->
+            <div class="bg-white p-7 rounded-3xl border border-black/[0.08] shadow-sm space-y-4 hover:border-black/20 hover:shadow-xl transition group">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-black/[0.03] rounded-2xl border border-black/[0.06] flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <img src="/static/images/icons/sandals.svg" class="w-9 h-9 object-contain" alt="Sandals">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-[#111111]">Cork, Jute & EVA Foam</h3>
+                        <span class="text-[11px] font-mono text-black/40">BIRKENSTOCKS, ESPADRILLES, SLIDES, CLOGS</span>
+                    </div>
+                </div>
+                <ul class="text-xs text-black/70 space-y-2 leading-relaxed">
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Coat exposed cork rims with cork sealant whenever finish fades.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Never soak jute espadrille braids in water; clean with dry soap froth.</li>
+                    <li class="flex items-start"><span class="text-[#2457FF] font-bold mr-2">&bull;</span>Wash molded EVA recovery slides with cold water and gentle soap.</li>
+                    <li class="flex items-start text-[#FF5C5C] font-medium"><span class="font-bold mr-2">&times;</span>Avoid: Leaving foam shoes in hot locked cars (heat causes shrinkage).</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Emergency Troubleshooting FAQ -->
+    <div class="bg-white p-8 sm:p-10 rounded-3xl border border-black/[0.08] shadow-sm space-y-6">
+        <div class="flex items-center space-x-2.5">
+            <div class="w-8 h-8 rounded-xl bg-coral/10 text-coral flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            </div>
+            <h2 class="text-2xl font-display font-bold text-[#111111] tracking-tight">Footwear Triage: Rapid Field Fixes</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
+            <div class="p-5 rounded-2xl bg-black/[0.025] border border-black/[0.06] space-y-2">
+                <h4 class="font-display font-bold text-[#111111] text-sm">How do I remove water & salt lines from leather?</h4>
+                <p class="text-black/60 leading-relaxed font-sans">Mix equal parts white vinegar and distilled water. Dab gently on salt lines with a cotton cloth, allow to dry completely at room temperature, then replenish with leather balm.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-black/[0.025] border border-black/[0.06] space-y-2">
+                <h4 class="font-display font-bold text-[#111111] text-sm">How do I eliminate stubborn odor bacteria?</h4>
+                <p class="text-black/60 leading-relaxed font-sans">Insert activated bamboo charcoal sachets or raw red cedar shoe trees. For rapid deodorization, insert unbrewed dry green tea bags or baking soda in the toe box overnight.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-black/[0.025] border border-black/[0.06] space-y-2">
+                <h4 class="font-display font-bold text-[#111111] text-sm">How can I reduce sneaker toe-box creases?</h4>
+                <p class="text-black/60 leading-relaxed font-sans">Pack the shoe tightly with rolled socks. Place a damp washcloth across the toe box and glide a hot clothing iron in gentle circles for 10-15 seconds. Let cool with trees firmly locked in.</p>
+            </div>
+            <div class="p-5 rounded-2xl bg-black/[0.025] border border-black/[0.06] space-y-2">
+                <h4 class="font-display font-bold text-[#111111] text-sm">How to stop new footwear from heel-rubbing?</h4>
+                <p class="text-black/60 leading-relaxed font-sans">Glide beeswax, clear stick deodorant, or candle wax across the inner heel collar counter to eliminate friction until the leather naturally molds to your calcaneus bone.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block footer %}
+<!-- Dedicated Footwear Care Lab & Restoration Laboratory Footer -->
+<footer class="bg-dark text-white border-t border-white/10 mt-20 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10">
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-full bg-lime text-dark flex items-center justify-center font-display font-black text-xs">
+                        FA
+                    </div>
+                    <span class="font-display font-black text-xl tracking-tight text-white">Footwear<span class="text-lime">AI</span> <span class="text-xs text-white/50 font-mono font-normal">// CARE LAB</span></span>
+                </div>
+                <h3 class="font-display text-2xl font-black text-white uppercase tracking-tight">
+                    Scientific Material Longevity.
+                </h3>
+                <p class="text-xs text-white/60 max-w-md leading-relaxed font-sans">
+                    Formulated care chemistry extending footwear lifecycle by 3.4x through pH-balanced nourishment, moisture barrier conditioning, and anti-crease tensioning.
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono pt-1">
+                    <span class="px-2.5 py-1 rounded-lg bg-white/10 text-lime font-bold">Protocol 04</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/10 text-white/80 font-bold">6 Material Chemistries</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/10 text-teal-400 font-bold">Zero Toxic Solvents</span>
+                </div>
+            </div>
+
+            <!-- Material Preservation Standards -->
+            <div class="md:col-span-4 space-y-3">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-lime font-bold">Preservation Matrix</h4>
+                <div class="grid grid-cols-2 gap-2.5 text-xs font-sans text-white/70">
+                    <span class="flex items-center space-x-1.5"><span class="text-lime">&bull;</span><span>Calfskin Full Grain</span></span>
+                    <span class="flex items-center space-x-1.5"><span class="text-lime">&bull;</span><span>Split Calf Suede</span></span>
+                    <span class="flex items-center space-x-1.5"><span class="text-lime">&bull;</span><span>Engineered Knit & Mesh</span></span>
+                    <span class="flex items-center space-x-1.5"><span class="text-lime">&bull;</span><span>Vegetable Tanned Leather</span></span>
+                    <span class="flex items-center space-x-1.5"><span class="text-lime">&bull;</span><span>Anatomical Cork Beds</span></span>
+                    <span class="flex items-center space-x-1.5"><span class="text-lime">&bull;</span><span>EVA Nitrogen Foam</span></span>
+                </div>
+            </div>
+
+            <!-- Care Advisory -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-lime font-bold">Need Triage Help?</h4>
+                <p class="text-xs text-white/50 leading-relaxed font-sans">
+                    Scan your footwear to determine its exact upper and midsole material composition before applying cleaners or conditioners.
+                </p>
+                <a href="/" class="inline-flex items-center space-x-2 text-xs font-display font-bold text-lime hover:underline uppercase tracking-wider pt-1">
+                    <span>Scan Material With AI</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Creator Signature & Social Profile Badges -->
+        <div class="pt-2 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3.5">
+                <div class="relative">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-lime to-emerald-400 p-0.5 shadow-glow-lime">
+                        <div class="w-full h-full bg-dark rounded-[14px] flex items-center justify-center font-display font-black text-lime text-xs">
+                            ME
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-lime border-2 border-dark flex items-center justify-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-dark"></span>
+                    </span>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-display font-black text-sm uppercase tracking-wider text-white">Created by <span class="text-lime">ME</span></span>
+                        <span class="px-2 py-0.5 rounded-full bg-white/10 text-[10px] font-mono text-lime border border-lime/30 font-bold uppercase">Lead Architect</span>
+                    </div>
+                    <p class="text-[11px] text-white/50 font-sans">Full-Stack AI & Computer Vision Engineer • Next-Gen 3D Footwear Platform</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-lime transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-glow-lime">
+                    <svg class="w-4 h-4 text-white group-hover:text-lime transition" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Code Repository</span>
+                        <span class="text-xs font-display font-bold text-white group-hover:text-lime transition">GitHub Profile</span>
+                    </div>
+                    <span class="text-xs text-lime opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-hyperblue transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-[0_0_20px_rgba(36,87,255,0.3)]">
+                    <svg class="w-4 h-4 text-[#0077b5] group-hover:text-white transition" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Professional Network</span>
+                        <span class="text-xs font-display font-bold text-white group-hover:text-hyperblue transition">LinkedIn Profile</span>
+                    </div>
+                    <span class="text-xs text-hyperblue opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40">
+            <p>&copy; 2026 FootwearAI Inc. Care Laboratory. Sustainable footwear longevity protocols.</p>
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0 font-mono text-[10px]">
+                <span class="text-lime">● PRESERVATION ENGINE ACTIVE</span>
+                <span>RESTORE // REWEAR</span>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

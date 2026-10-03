@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FootwearAI — The Future of Every Step{% endblock %}</title>
+    
+    <!-- Google Fonts: Barlow Condensed (Athletic Footwear Display), Plus Jakarta Sans (Modern Streetwear Sans), Space Grotesk (Tech Monospace), Syne (Avant-Garde Fashion) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN with Custom Extended Theme -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'offwhite': '#F7F7F2',
+                        'dark': '#111111',
+                        'dark-card': '#191919',
+                        'lime': '#C8FF00',
+                        'hyperblue': '#2457FF',
+                        'coral': '#FF5C5C',
+                        'violet': '#8B5CF6',
+                        'aqua': '#35E0D0',
+                        'brand-dark': '#111111',
+                        'brand-offwhite': '#F7F7F2',
+                        'brand-lime': '#C8FF00',
+                        'brand-hyperblue': '#2457FF',
+                        'brand-coral': '#FF5C5C',
+                    },
+                    fontFamily: {
+                        'sneaker': ['"Barlow Condensed"', 'sans-serif'],
+                        'athletic': ['"Barlow Condensed"', 'sans-serif'],
+                        'grotesk': ['"Barlow Condensed"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        'display': ['"Barlow Condensed"', '"Syne"', 'sans-serif'],
+                        'syne': ['"Syne"', 'sans-serif'],
+                        'sans': ['"Plus Jakarta Sans"', 'sans-serif'],
+                        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+                        'tech': ['"Space Grotesk"', 'monospace'],
+                        'mono': ['"Space Grotesk"', 'monospace'],
+                    },
+                    letterSpacing: {
+                        'tighter': '-0.02em',
+                        'tight': '-0.01em',
+                        'snkrs': '0.04em',
+                        'widest-xl': '0.25em',
+                    },
+                    boxShadow: {
+                        'glow-lime': '0 0 35px -5px rgba(200, 255, 0, 0.45)',
+                        'glow-blue': '0 0 35px -5px rgba(36, 87, 255, 0.45)',
+                        'floating': '0 20px 45px -15px rgba(0, 0, 0, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Three.js + Loaders + Controls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F7F7F2;
+            color: #111111;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Footwear Campaign Headlines: Bold, athletic, condensed, high-impact */
+        h1, h2, .font-sneaker, .font-athletic, .font-display, .font-hero {
+            font-family: 'Barlow Condensed', 'Syne', sans-serif !important;
+            font-weight: 900 !important;
+            letter-spacing: 0.015em;
+            text-rendering: optimizeLegibility;
+        }
+        h3, h4 {
+            font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.015em;
+        }
+        .font-grotesk {
+            font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
+        }
+        .font-grotesk.uppercase, .uppercase.font-black, h1.uppercase, h2.uppercase, h3.uppercase, h4.uppercase {
+            font-family: 'Barlow Condensed', sans-serif !important;
+            letter-spacing: 0.025em;
+            font-weight: 900;
+        }
+        .font-sans, .font-body, p, span.body-text, input, select, textarea, button {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-syne {
+            font-family: 'Syne', sans-serif !important;
+        }
+        .font-mono, .font-tech {
+            font-family: 'Space Grotesk', monospace !important;
+            letter-spacing: 0.03em;
+        }
+        /* Authoritative high-contrast fallback utility classes */
+        .bg-dark, .bg-brand-dark, [class*="bg-brand-dark"] {
+            background-color: #111111 !important;
+            color: #FFFFFF !important;
+        }
+        .bg-dark-card {
+            background-color: #181818 !important;
+        }
+        .bg-lime, .bg-brand-lime, [class*="bg-brand-lime"] {
+            background-color: #C8FF00 !important;
+            color: #111111 !important;
+        }
+        .text-lime, .text-brand-lime {
+            color: #C8FF00 !important;
+        }
+        .text-dark, .text-brand-dark {
+            color: #111111 !important;
+        }
+        .text-hyperblue, .text-brand-hyperblue {
+            color: #2457FF !important;
+        }
+        .bg-hyperblue, .bg-brand-hyperblue {
+            background-color: #2457FF !important;
+            color: #FFFFFF !important;
+        }
+        .bg-offwhite, .bg-brand-offwhite {
+            background-color: #F7F7F2 !important;
+        }
+        ::selection {
+            background-color: #C8FF00;
+            color: #111111;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #111111;
+            border-radius: 9999px;
+        }
+        /* Scanner laser animation */
+        @keyframes scanBeam {
+            0% { top: 0%; opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { top: 96%; opacity: 0; }
+        }
+        .animate-scan-beam {
+            animation: scanBeam 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        /* Float pulse */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body class="bg-offwhite text-dark min-h-screen flex flex-col antialiased selection:bg-lime selection:text-dark">
+
+    <!-- Floating Minimal Pill Navbar -->
+    <header id="main-navbar" class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 transition-all duration-300">
+        <div class="max-w-6xl mx-auto">
+            <div id="nav-pill" class="bg-white/85 backdrop-blur-xl border border-black/8 rounded-full px-4 sm:px-6 py-3 shadow-lg shadow-black/5 flex items-center justify-between transition-all duration-300">
+                
+                <!-- Brand Logo -->
+                <a href="/" class="flex items-center space-x-2.5 group">
+                    <div class="w-8 h-8 rounded-full bg-dark text-lime flex items-center justify-center font-grotesk font-black text-xs shadow-md group-hover:scale-105 group-hover:bg-lime group-hover:text-dark transition">
+                        FA
+                    </div>
+                    <div class="flex items-baseline space-x-1">
+                        <span class="font-grotesk font-black text-lg tracking-tight text-dark">Footwear<span class="text-lime bg-dark px-1.5 py-0.5 rounded-md ml-0.5 text-xs">AI</span></span>
+                    </div>
+                </a>
+
+                <!-- Center Nav Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-bold uppercase tracking-wider">
+                    <a href="/#scanner-section" class="px-3.5 py-1.5 rounded-full text-dark/70 hover:text-dark hover:bg-black/5 transition {% if active_page == 'scanner' %}text-dark bg-black/5 font-extrabold{% endif %}">
+                        AI Scanner
+                    </a>
+                    <a href="/#xray-section" class="px-3.5 py-1.5 rounded-full text-dark/70 hover:text-dark hover:bg-black/5 transition">
+                        Shoe X-Ray
+                    </a>
+                    <a href="/catalog" class="px-3.5 py-1.5 rounded-full text-dark/70 hover:text-dark hover:bg-black/5 transition {% if active_page == 'catalog' %}text-dark bg-black/5 font-extrabold{% endif %}">
+                        Catalog (33+)
+                    </a>
+                    <a href="/care" class="px-3.5 py-1.5 rounded-full text-dark/70 hover:text-dark hover:bg-black/5 transition {% if active_page == 'care' %}text-dark bg-black/5 font-extrabold{% endif %}">
+                        Care Lab
+                    </a>
+                    <a href="/shop" class="px-3.5 py-1.5 rounded-full text-dark/70 hover:text-dark hover:bg-black/5 transition {% if active_page == 'shop' %}text-dark bg-black/5 font-extrabold{% endif %}">
+                        Shopping
+                    </a>
+                </nav>
+
+                <!-- Right Action Buttons -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    
+                    <!-- AI Status Indicator -->
+                    <span class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase bg-emerald-500/10 text-emerald-800 border border-emerald-500/20">
+                        <span class="w-1.5 h-1.5 mr-1.5 bg-emerald-500 rounded-full animate-ping"></span>
+                        AI Online
+                    </span>
+
+                    <!-- Recent Searches Trigger -->
+                    <button onclick="openHistoryDrawer()" class="px-3 py-1.5 rounded-full text-xs font-bold bg-dark text-white hover:bg-dark/80 transition flex items-center space-x-1.5 shadow-xs">
+                        <svg class="w-3.5 h-3.5 text-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="hidden lg:inline">Recent</span>
+                        <span id="nav-history-badge" class="bg-lime text-dark text-[10px] font-black px-1.5 py-0.2 rounded-full">0</span>
+                    </button>
+
+                    <!-- Try Scanner CTA -->
+                    <a href="/#scanner-section" class="px-4 py-2 rounded-full bg-lime hover:bg-[#b8eb00] text-dark font-grotesk font-black text-xs uppercase tracking-wider shadow-sm hover:shadow-glow-lime transition transform hover:-translate-y-0.5">
+                        Scan Now &rarr;
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-1.5 rounded-full text-dark hover:bg-black/5 focus:outline-none">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 bg-white/95 backdrop-blur-xl border border-black/10 rounded-3xl p-4 shadow-xl space-y-2">
+            <a href="/#scanner-section" onclick="toggleMobileMenu()" class="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-dark hover:bg-lime/20 transition">
+                <svg class="w-4 h-4 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <span>AI Scanner</span>
+            </a>
+            <a href="/#xray-section" onclick="toggleMobileMenu()" class="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-dark hover:bg-lime/20 transition">
+                <svg class="w-4 h-4 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span>Shoe X-Ray</span>
+            </a>
+            <a href="/catalog" class="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-dark hover:bg-lime/20 transition">
+                <svg class="w-4 h-4 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                <span>Style Catalog (33+ Categories)</span>
+            </a>
+            <a href="/care" class="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-dark hover:bg-lime/20 transition">
+                <svg class="w-4 h-4 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <span>Shoe Care Lab</span>
+            </a>
+            <a href="/shop" class="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-dark hover:bg-lime/20 transition">
+                <svg class="w-4 h-4 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                <span>Shopping Hub</span>
+            </a>
+            <a href="/about" class="flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-dark hover:bg-lime/20 transition">
+                <svg class="w-4 h-4 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                <span>Neural Architecture & API</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Slot -->
+    <main class="flex-1 w-full pt-16">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Separate Footer Block Slot -->
+    {% block footer %}
+    <!-- Default Footer if not overridden by page -->
+    <footer class="bg-dark text-white border-t border-white/10 mt-20 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                <div class="md:col-span-6 space-y-4">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-8 h-8 rounded-full bg-lime text-dark flex items-center justify-center font-display font-black text-xs">
+                            FA
+                        </div>
+                        <span class="font-display font-black text-xl tracking-tight text-white">Footwear<span class="text-lime">AI</span></span>
+                    </div>
+                    <p class="font-display text-2xl font-black text-white/90 uppercase tracking-tight leading-snug">
+                        "THE FUTURE OF EVERY STEP."
+                    </p>
+                    <p class="text-xs text-white/50 max-w-sm leading-relaxed">
+                        Computer vision platform engineered for real-time silhouette classification, deep visual embedding match, and intelligent footwear care.
+                    </p>
+                </div>
+                <div class="md:col-span-6 flex flex-col md:items-end justify-between space-y-4">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-white/10 text-[11px] font-mono font-bold text-white/90">TensorFlow 2.15</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/10 text-[11px] font-mono font-bold text-white/90">MobileNetV2</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white/10 text-[11px] font-mono font-bold text-white/90">1280-d Latent</span>
+                    </div>
+                    <div class="flex items-center space-x-4 font-mono text-[11px]">
+                        <span class="text-lime">● SYSTEM READY</span>
+                        <span>127.0.0.1:5000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creator Signature & Social Profile Badges -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-3.5">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-lime to-emerald-400 p-0.5 shadow-glow-lime">
+                            <div class="w-full h-full bg-dark rounded-[14px] flex items-center justify-center font-display font-black text-lime text-xs">
+                                ME
+                            </div>
+                        </div>
+                        <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-lime border-2 border-dark flex items-center justify-center">
+                            <span class="w-1.5 h-1.5 rounded-full bg-dark"></span>
+                        </span>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="font-display font-black text-sm uppercase tracking-wider text-white">Created by <span class="text-lime">ME</span></span>
+                            <span class="px-2 py-0.5 rounded-full bg-white/10 text-[10px] font-mono text-lime border border-lime/30 font-bold uppercase">Lead Architect</span>
+                        </div>
+                        <p class="text-[11px] text-white/50 font-sans">Full-Stack AI & Computer Vision Engineer • Next-Gen 3D Footwear Platform</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-lime transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-glow-lime">
+                        <svg class="w-4 h-4 text-white group-hover:text-lime transition" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Code Repository</span>
+                            <span class="text-xs font-display font-bold text-white group-hover:text-lime transition">GitHub Profile</span>
+                        </div>
+                        <span class="text-xs text-lime opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                    </a>
+
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-hyperblue transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-[0_0_20px_rgba(36,87,255,0.3)]">
+                        <svg class="w-4 h-4 text-[#0077b5] group-hover:text-white transition" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        <div class="flex flex-col text-left">
+                            <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Professional Network</span>
+                            <span class="text-xs font-display font-bold text-white group-hover:text-hyperblue transition">LinkedIn Profile</span>
+                        </div>
+                        <span class="text-xs text-hyperblue opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40">
+                <p>&copy; 2026 FootwearAI Inc. All rights reserved. Designed for next-gen footwear discovery.</p>
+                <div class="flex items-center space-x-4 mt-2 sm:mt-0 font-mono text-[10px]">
+                    <span class="text-lime">● ALL SYSTEMS NOMINAL</span>
+                    <span>v2.4.0 PROD</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+
+    <!-- Recent Searches Slide-Over Drawer -->
+    <div id="history-drawer-backdrop" onclick="closeHistoryDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <aside id="history-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-dark text-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-white/10">
+        <!-- Header -->
+        <div class="p-6 border-b border-white/10 flex items-center justify-between bg-dark-card">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-2xl bg-lime text-dark flex items-center justify-center font-black">
+                    <svg class="w-5 h-5 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-grotesk font-black text-white text-base uppercase tracking-tight">Recent Scans</h3>
+                    <span id="drawer-count" class="text-xs text-white/50">Saved locally in browser</span>
+                </div>
+            </div>
+            <button onclick="closeHistoryDrawer()" class="p-2 text-white/40 hover:text-white rounded-xl hover:bg-white/10 transition">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Drawer Content -->
+        <div id="drawer-history-list" class="flex-1 overflow-y-auto p-5 space-y-3.5">
+            <!-- Dynamically populated scan cards -->
+        </div>
+
+        <!-- Footer -->
+        <div class="p-5 border-t border-white/10 bg-dark-card flex items-center justify-between text-xs">
+            <button onclick="clearAllHistoryFromDrawer()" class="text-coral hover:text-red-400 font-bold transition">
+                Clear All History
+            </button>
+            <button onclick="closeHistoryDrawer()" class="px-5 py-2.5 bg-lime hover:bg-[#b8eb00] text-dark font-grotesk font-black uppercase tracking-wider rounded-full transition">
+                Close
+            </button>
+        </div>
+    </aside>
+
+    <script>
+        // Navbar shrink on scroll
+        window.addEventListener('scroll', () => {
+            const navPill = document.getElementById('nav-pill');
+            if (window.scrollY > 40) {
+                navPill.classList.add('py-2', 'bg-white/95', 'shadow-xl');
+                navPill.classList.remove('py-3');
+            } else {
+                navPill.classList.remove('py-2', 'shadow-xl');
+                navPill.classList.add('py-3');
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Global Recent Searches Drawer Logic
+        function updateNavHistoryBadge() {
+            try {
+                const history = JSON.parse(localStorage.getItem('footwear_scans') || '[]');
+                const count = history.length;
+                const badge = document.getElementById('nav-history-badge');
+                if (badge) badge.innerText = count;
+            } catch (e) {
+                console.error("Failed to load history badge:", e);
+            }
+        }
+
+        function openHistoryDrawer() {
+            const backdrop = document.getElementById('history-drawer-backdrop');
+            const drawer = document.getElementById('history-drawer');
+            const list = document.getElementById('drawer-history-list');
+            const countLabel = document.getElementById('drawer-count');
+
+            backdrop.classList.remove('hidden');
+            drawer.classList.remove('translate-x-full');
+
+            const history = JSON.parse(localStorage.getItem('footwear_scans') || '[]');
+            countLabel.innerText = `${history.length} scans saved locally`;
+
+            if (history.length === 0) {
+                list.innerHTML = `
+                    <div class="py-16 text-center text-white/40 space-y-3">
+                        <div class="w-16 h-16 mx-auto p-3 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10">
+                            <img src="/static/images/icons/sneakers.svg" class="w-10 h-10 object-contain" alt="Footwear">
+                        </div>
+                        <p class="text-sm font-grotesk font-bold text-white">No recent footwear scans</p>
+                        <p class="text-xs text-white/40">Upload or snap a shoe to start your collection!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = '';
+            history.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-lime/60 transition space-y-3";
+                
+                const iconSlug = (item.icon && item.icon.length > 2) ? item.icon : (item.category || 'sneakers');
+                const thumbHtml = item.thumbnail 
+                    ? `<img src="${item.thumbnail}" class="w-14 h-14 object-cover rounded-xl border border-white/10">`
+                    : `<div class="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center p-2"><img src="/static/images/icons/${iconSlug}.svg" class="w-9 h-9 object-contain" alt="Footwear"></div>`;
+
+                card.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center space-x-3">
+                            ${thumbHtml}
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <img src="/static/images/icons/${iconSlug}.svg" class="w-4 h-4 object-contain inline-block" alt="Category">
+                                    <h4 class="font-grotesk font-black text-white text-sm uppercase">${item.category_name || item.category}</h4>
+                                </div>
+                                <div class="text-[11px] text-white/50 mt-0.5 flex items-center space-x-2">
+                                    <span class="text-lime font-bold">${item.confidence}% Match</span>
+                                    <span>&bull;</span>
+                                    <span>${item.timestamp}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="deleteSingleScan('${item.id}', event)" class="text-white/30 hover:text-coral transition p-1 text-sm" title="Remove scan">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-[10px] uppercase font-mono text-white/40">Stored Snapshot</span>
+                        <button onclick="reopenFromDrawer('${item.id}')" class="px-3.5 py-1.5 bg-lime hover:bg-[#b8eb00] text-dark rounded-full text-xs font-grotesk font-black uppercase tracking-wider transition">
+                            Re-Open & View Deals &rarr;
+                        </button>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function closeHistoryDrawer() {
+            const backdrop = document.getElementById('history-drawer-backdrop');
+            const drawer = document.getElementById('history-drawer');
+            if (drawer) drawer.classList.add('translate-x-full');
+            if (backdrop) backdrop.classList.add('hidden');
+        }
+
+        function reopenFromDrawer(scanId) {
+            closeHistoryDrawer();
+            if (window.location.pathname === '/' || window.location.pathname === '') {
+                if (typeof window.reopenScanById === 'function') {
+                    window.reopenScanById(scanId);
+                }
+            } else {
+                localStorage.setItem('pending_reopen_scan_id', scanId);
+                window.location.href = '/';
+            }
+        }
+
+        function deleteSingleScan(scanId, event) {
+            if (event) event.stopPropagation();
+            let history = JSON.parse(localStorage.getItem('footwear_scans') || '[]');
+            history = history.filter(item => String(item.id) !== String(scanId));
+            localStorage.setItem('footwear_scans', JSON.stringify(history));
+            updateNavHistoryBadge();
+            openHistoryDrawer();
+            if (typeof window.loadScanHistory === 'function') {
+                window.loadScanHistory();
+            }
+        }
+
+        function clearAllHistoryFromDrawer() {
+            if (confirm("Clear all your saved footwear scan history?")) {
+                localStorage.removeItem('footwear_scans');
+                updateNavHistoryBadge();
+                openHistoryDrawer();
+                if (typeof window.loadScanHistory === 'function') {
+                    window.loadScanHistory();
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', updateNavHistoryBadge);
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

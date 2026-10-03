@@ -1,0 +1,2638 @@
+{% extends "base.html" %}
+
+{% block title %}FootwearAI — The Future of Every Step{% endblock %}
+
+{% block content %}
+<div class="space-y-0 text-dark">
+
+    <!-- ==================== SECTION 1: FULL SCREEN 3D HERO (100vh) ==================== -->
+    <section id="hero-section" class="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-center overflow-hidden px-4 sm:px-8 -mt-16 pt-28 pb-16">
+        
+        <!-- Subtle Background Grid & Decorative Coordinates -->
+        <div class="absolute inset-0 pointer-events-none opacity-40">
+            <div class="w-full h-full" style="background-image: radial-gradient(rgba(17, 17, 17, 0.08) 1px, transparent 1px); background-size: 32px 32px;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            
+            <!-- Left Hero Content (7 Cols) -->
+            <div class="lg:col-span-7 space-y-6 pt-4 sm:pt-0">
+                
+                <!-- Eyebrow Badge -->
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-dark text-lime font-grotesk font-black text-[11px] uppercase tracking-widest shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-lime animate-ping"></span>
+                    <span>AI-Powered Footwear Intelligence</span>
+                </div>
+
+                <!-- Massive Bold Headline -->
+                <div class="space-y-1">
+                    <h1 class="font-grotesk font-black text-5xl sm:text-7xl lg:text-8xl leading-[0.92] tracking-tighter uppercase text-dark">
+                        THE FUTURE<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-dark via-dark/85 to-hyperblue">OF EVERY</span><br>
+                        <span class="relative inline-block">
+                            STEP.
+                            <svg class="absolute -bottom-2 left-0 w-full h-3 text-lime" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M0,10 Q50,0 100,10" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </h1>
+                </div>
+
+                <!-- Supporting Tagline -->
+                <p class="text-base sm:text-xl font-medium text-dark/70 max-w-xl leading-relaxed pt-2">
+                    "See it. Scan it. Understand it. Wear it." Identify silhouettes, extract deep visual embeddings, and match exact footwear pairs across the world's leading portals.
+                </p>
+
+                <!-- Action CTAs -->
+                <div class="flex flex-wrap items-center gap-4 pt-3">
+                    <a href="#scanner-section" class="px-8 py-4 rounded-full bg-dark text-lime hover:bg-lime hover:text-dark font-grotesk font-black text-sm uppercase tracking-wider shadow-lg hover:shadow-glow-lime transition transform hover:-translate-y-1 flex items-center space-x-2">
+                        <span>SCAN YOUR SHOE</span>
+                        <span class="text-lg">&rarr;</span>
+                    </a>
+                    <a href="#style-section" class="px-7 py-4 rounded-full bg-white/80 hover:bg-white text-dark border border-black/10 font-grotesk font-bold text-sm uppercase tracking-wider shadow-sm transition transform hover:-translate-y-0.5">
+                        Explore Collection
+                    </a>
+                </div>
+
+                <!-- Floating Info Chips Bar -->
+                <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-dark/60">
+                    <div class="flex items-center space-x-1.5 bg-white/60 px-3 py-1.5 rounded-full border border-black/5">
+                        <span class="text-dark font-bold">●</span>
+                        <span>33+ Footwear Categories</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5 bg-white/60 px-3 py-1.5 rounded-full border border-black/5">
+                        <span class="text-hyperblue font-bold">●</span>
+                        <span>1280-d Visual Matching</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5 bg-white/60 px-3 py-1.5 rounded-full border border-black/5">
+                        <span class="text-coral font-bold">●</span>
+                        <span>5 Major Portals</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Hero Sneaker Showcase (5 Cols) -->
+            <div id="hero-shoe-stage" class="lg:col-span-5 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px]">
+                
+                <!-- Background Ambient Glow Sphere -->
+                <div class="absolute w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full bg-lime/20 blur-3xl -z-10 animate-pulse pointer-events-none"></div>
+                <div class="absolute w-64 h-64 rounded-full bg-hyperblue/15 blur-3xl -z-10 pointer-events-none -bottom-8 -right-8"></div>
+
+                <!-- Floating Showcase Container with Mouse Tilt -->
+                <div id="hero-img-wrap" class="relative w-full max-w-[480px] flex items-center justify-center transition-transform duration-200 ease-out animate-float">
+                    
+                    <!-- Photorealistic Hero Sneaker Image -->
+                    <img src="/static/images/hero_sneaker.png" alt="Futuristic High-Performance Sneaker" class="w-full h-auto object-contain filter drop-shadow-[0_25px_35px_rgba(0,0,0,0.2)] select-none pointer-events-none transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+                    
+                    <!-- Floating Tech Callout Labels around Shoe -->
+                    <div class="absolute -top-3 right-2 bg-white/95 backdrop-blur-md border border-black/10 px-3.5 py-2 rounded-2xl shadow-lg text-[10px] font-mono font-bold tracking-tight text-dark pointer-events-none">
+                        <span class="text-lime bg-dark px-1.5 py-0.5 rounded mr-1">AI VISION</span>
+                        <span>98.4% MATCH</span>
+                    </div>
+
+                    <div class="absolute bottom-12 -left-3 bg-white/95 backdrop-blur-md border border-black/10 px-3.5 py-2 rounded-2xl shadow-lg text-[10px] font-mono font-bold tracking-tight text-dark pointer-events-none hidden sm:block">
+                        <span class="text-hyperblue font-extrabold mr-1">MATERIAL:</span>
+                        <span>MESH + RUBBER</span>
+                    </div>
+
+                    <div class="absolute -bottom-4 right-6 bg-white/95 backdrop-blur-md border border-black/10 px-3.5 py-2 rounded-2xl shadow-lg text-[10px] font-mono font-bold tracking-tight text-dark pointer-events-none hidden sm:block">
+                        <span class="text-coral font-extrabold mr-1">AIR:</span>
+                        <span>ZERO-GRAVITY CUSHION</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Floating Product Showcase Cards (3 Cards) - Positioned with proper top margin -->
+        <div class="max-w-7xl mx-auto w-full mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
+            
+            <!-- Card 1 -->
+            <div class="group bg-white/90 backdrop-blur-md border border-black/10 rounded-2xl p-4 shadow-sm hover:shadow-floating hover:-translate-y-1.5 hover:border-lime transition-all duration-300 flex items-center justify-between cursor-pointer" onclick="document.getElementById('scanner-section').scrollIntoView({behavior: 'smooth'})">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-14 h-14 rounded-2xl bg-black overflow-hidden flex items-center justify-center group-hover:scale-110 transition border border-lime/30 flex-shrink-0 shadow-sm">
+                        <img src="/static/images/products/hero_air_01.jpg" class="w-full h-full object-cover" alt="Air Speed 01">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono font-extrabold tracking-widest text-dark/40 uppercase">SERIES / 01</span>
+                        <h4 class="font-grotesk font-black text-sm text-dark uppercase group-hover:text-hyperblue transition">AIR / SPEED 01</h4>
+                        <p class="text-xs text-dark/60 font-medium">Performance Marathon Runner</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="font-grotesk font-black text-sm text-dark block">₹8,999</span>
+                    <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 inline-block transition">&rarr;</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="group bg-white/90 backdrop-blur-md border border-black/10 rounded-2xl p-4 shadow-sm hover:shadow-floating hover:-translate-y-1.5 hover:border-hyperblue transition-all duration-300 flex items-center justify-between cursor-pointer" onclick="document.getElementById('scanner-section').scrollIntoView({behavior: 'smooth'})">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-14 h-14 rounded-2xl bg-black overflow-hidden flex items-center justify-center group-hover:scale-110 transition border border-hyperblue/30 flex-shrink-0 shadow-sm">
+                        <img src="/static/images/products/hero_urban_02.jpg" class="w-full h-full object-cover" alt="Urban Trail 02">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono font-extrabold tracking-widest text-dark/40 uppercase">SERIES / 02</span>
+                        <h4 class="font-grotesk font-black text-sm text-dark uppercase group-hover:text-hyperblue transition">URBAN / TRAIL 02</h4>
+                        <p class="text-xs text-dark/60 font-medium">Streetwear Off-White Runner</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="font-grotesk font-black text-sm text-dark block">₹6,499</span>
+                    <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 inline-block transition">&rarr;</span>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="group bg-white/90 backdrop-blur-md border border-black/10 rounded-2xl p-4 shadow-sm hover:shadow-floating hover:-translate-y-1.5 hover:border-coral transition-all duration-300 flex items-center justify-between cursor-pointer" onclick="document.getElementById('scanner-section').scrollIntoView({behavior: 'smooth'})">
+                <div class="flex items-center space-x-3.5">
+                    <div class="w-14 h-14 rounded-2xl bg-black overflow-hidden flex items-center justify-center group-hover:scale-110 transition border border-coral/30 flex-shrink-0 shadow-sm">
+                        <img src="/static/images/products/hero_form_03.jpg" class="w-full h-full object-cover" alt="Form Smart 03">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono font-extrabold tracking-widest text-dark/40 uppercase">SERIES / 03</span>
+                        <h4 class="font-grotesk font-black text-sm text-dark uppercase group-hover:text-hyperblue transition">FORM / SMART 03</h4>
+                        <p class="text-xs text-dark/60 font-medium">Low-Profile Gum Sole Trainer</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="font-grotesk font-black text-sm text-dark block">₹5,999</span>
+                    <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 inline-block transition">&rarr;</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 2: DARK "SEE YOUR SHOE DIFFERENTLY" ==================== -->
+    <section id="inspection-section" class="bg-dark text-white py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Editorial Headline -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block px-3 py-1 rounded-full bg-white/10 text-lime font-mono text-xs uppercase tracking-widest">
+                        Neural Telemetry &bull; MobileNetV2
+                    </div>
+                    <h2 class="font-grotesk font-black text-4xl sm:text-6xl lg:text-7xl leading-tight uppercase tracking-tight">
+                        SEE YOUR SHOE<br>
+                        <span class="text-lime">DIFFERENTLY.</span>
+                    </h2>
+                    <p class="text-white/60 text-sm sm:text-base leading-relaxed max-w-lg">
+                        Computer vision turns an ordinary shoe photo into useful footwear intelligence. Our convolutional backbone extracts 1,280-dimensional topological features, deconstructing the geometry of the outsole, vamp, and collar in real time.
+                    </p>
+
+                    <!-- Interactive Intelligence Readout Cards -->
+                    <div class="grid grid-cols-2 gap-3 pt-4">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-white/40 block">Category</span>
+                            <span class="font-grotesk font-black text-lg text-lime">Sneakers</span>
+                            <span class="text-[11px] text-white/50 block mt-0.5">Lifestyle & Athletics</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-white/40 block">Confidence</span>
+                            <span class="font-grotesk font-black text-lg text-emerald-400">98.4%</span>
+                            <span class="text-[11px] text-white/50 block mt-0.5">High Feature Margin</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-white/40 block">Style</span>
+                            <span class="font-grotesk font-black text-lg text-hyperblue">Streetwear</span>
+                            <span class="text-[11px] text-white/50 block mt-0.5">Urban Athleisure</span>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-white/40 block">Price Range</span>
+                            <span class="font-grotesk font-black text-lg text-white">₹2,000 – ₹18K+</span>
+                            <span class="text-[11px] text-white/50 block mt-0.5">Verified Retailers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Deconstruction Wireframe -->
+                <div class="lg:col-span-6 relative flex items-center justify-center">
+                    <div class="relative w-full max-w-lg aspect-square bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-3xl p-8 flex flex-col justify-between overflow-hidden shadow-2xl">
+                        
+                        <div class="flex items-center justify-between text-xs font-mono text-white/40">
+                            <span>SCAN_MODE: TOPOLOGY_360</span>
+                            <span class="text-lime">LIVE MATRIX</span>
+                        </div>
+
+                        <!-- Central Animated Hologram Silhouette -->
+                        <div class="my-auto text-center space-y-4 relative">
+                            <div class="relative w-full max-w-[320px] mx-auto filter drop-shadow-[0_0_25px_rgba(200,255,0,0.25)] animate-float">
+                                <svg viewBox="0 0 400 220" class="w-full h-auto text-lime" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Coordinate Grid Lines -->
+                                    <line x1="20" y1="180" x2="380" y2="180" stroke="#FFFFFF" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                                    <line x1="80" y1="20" x2="80" y2="200" stroke="#FFFFFF" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                                    <line x1="200" y1="20" x2="200" y2="200" stroke="#FFFFFF" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                                    <line x1="320" y1="20" x2="320" y2="200" stroke="#FFFFFF" stroke-opacity="0.12" stroke-dasharray="4 4" />
+                                    <!-- Outsole & Midsole Wireframe -->
+                                    <path d="M40,170 C80,185 300,185 360,165 C370,160 365,148 350,148 C300,152 140,152 70,145 C50,145 35,155 40,170 Z" stroke="#2457FF" stroke-width="2.5" fill="#2457FF" fill-opacity="0.15" />
+                                    <path d="M50,150 C120,155 280,155 345,145 C350,135 340,120 320,110 C290,95 240,60 210,60 C185,60 170,90 140,110 C100,125 55,130 50,150 Z" stroke="#C8FF00" stroke-width="2.5" fill="#C8FF00" fill-opacity="0.1" />
+                                    <!-- Collar & Heel Counter -->
+                                    <path d="M320,110 C340,95 330,70 300,75 C275,80 250,90 230,100" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 4" />
+                                    <!-- Swoosh / Flow Vector Accent -->
+                                    <path d="M120,130 Q200,145 280,105 Q220,125 150,128 Z" fill="#C8FF00" fill-opacity="0.85" />
+                                    <!-- Vector Nodes / Hotspot Reticles -->
+                                    <circle cx="65" cy="148" r="4.5" fill="#C8FF00" />
+                                    <circle cx="210" cy="62" r="4.5" fill="#2457FF" />
+                                    <circle cx="330" cy="115" r="4.5" fill="#FF5C5C" />
+                                    <circle cx="270" cy="175" r="4.5" fill="#35E0D0" />
+                                </svg>
+                                <!-- Scanning Laser Line Animation -->
+                                <div class="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-[#C8FF00] to-transparent shadow-[0_0_12px_#C8FF00] animate-scan-beam pointer-events-none"></div>
+                            </div>
+                            <div class="font-grotesk font-bold text-xs uppercase tracking-widest text-white/80 flex items-center justify-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-lime animate-ping"></span>
+                                <span>Feature Vector Alignment: <strong class="text-lime">1,280-D Active</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/50">
+                            <span>RESOLUTION: 224x224 RGB</span>
+                            <span>INFERENCE: &lt;45ms</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION: MATERIALS INTELLIGENCE & HIGH-PERFORMANCE LAB ==================== -->
+    <section id="materials-lab-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full space-y-16">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/10">
+            <div class="space-y-3 max-w-2xl">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-dark text-lime font-mono font-bold text-[11px] uppercase tracking-widest">
+                    <span>LAB // COMPOUND SPECIFICATIONS</span>
+                </div>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight text-dark leading-tight">
+                    THE MOLECULAR ANATOMY<br>
+                    <span class="text-hyperblue">OF SPEED & COMFORT.</span>
+                </h2>
+                <p class="text-dark/70 text-sm sm:text-base leading-relaxed font-sans">
+                    Every step relies on advanced polymer chemistry. Discover the supercritical nitrogen foams, aerospace carbon matrices, and micro-siped rubber formulations mapped by our computer vision engine.
+                </p>
+            </div>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <div class="bg-white px-4 py-2 rounded-2xl border border-black/10 shadow-xs">
+                    <span class="text-black/40 block text-[10px]">AVG ENERGY RETURN</span>
+                    <span class="text-dark font-black text-base">84.6%</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-2xl border border-black/10 shadow-xs">
+                    <span class="text-black/40 block text-[10px]">TENSILE MODULUS</span>
+                    <span class="text-hyperblue font-black text-base">450 GPa</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6 Material Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 1: Supercritical Foam -->
+            <div class="group bg-white rounded-3xl p-7 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded-lg bg-lime text-dark font-mono text-[10px] font-black uppercase tracking-wider">Compound 01</span>
+                        <span class="text-xs font-mono text-dark/40">FOAM_CHEM</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-grotesk font-black text-xl text-dark uppercase group-hover:text-hyperblue transition">Supercritical PEBAX Foam</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Nitrogen-expanded block copolymer with micro-cellular gas pockets delivering explosive spring and ultra-low hysteresis under high stride impact.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-black/5 space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between text-dark/70">
+                        <span>Energy Return:</span>
+                        <strong class="text-dark font-black">84.6% (Peak)</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Compression Set:</span>
+                        <strong class="text-dark font-black">&lt; 10% @ 500km</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Benchmark Models:</span>
+                        <span class="text-hyperblue font-bold">Nike Vaporfly, Saucony Endorphin</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Carbon Fiber Plate -->
+            <div class="group bg-white rounded-3xl p-7 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded-lg bg-dark text-white font-mono text-[10px] font-black uppercase tracking-wider">Compound 02</span>
+                        <span class="text-xs font-mono text-dark/40">COMPOSITE</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-grotesk font-black text-xl text-dark uppercase group-hover:text-hyperblue transition">3D Curved Carbon Plate</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Autoclave-molded carbon-fiber spoon geometry stiffening the metatarsophalangeal joint to act as a biomechanical lever arm at toe-off.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-black/5 space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between text-dark/70">
+                        <span>Tensile Modulus:</span>
+                        <strong class="text-dark font-black">450 GPa</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Torque Resistance:</span>
+                        <strong class="text-dark font-black">Multi-Axis Dynamic</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Benchmark Models:</span>
+                        <span class="text-hyperblue font-bold">Alphafly 3, Adizero Adios Pro</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Jacquard Knit -->
+            <div class="group bg-white rounded-3xl p-7 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded-lg bg-hyperblue text-white font-mono text-[10px] font-black uppercase tracking-wider">Compound 03</span>
+                        <span class="text-xs font-mono text-dark/40">TEXTILE</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-grotesk font-black text-xl text-dark uppercase group-hover:text-hyperblue transition">Engineered Jacquard Knit</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Variable-density circular weave combining high-tensile polyester threads with elastane flex zones for zero-friction lockdown and breathability.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-black/5 space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between text-dark/70">
+                        <span>Air Permeability:</span>
+                        <strong class="text-dark font-black">180 cm³/cm²/s</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Tensile Rupture:</span>
+                        <strong class="text-dark font-black">450 N (Reinforced)</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Benchmark Models:</span>
+                        <span class="text-hyperblue font-bold">Nike Flyknit, Adidas Primeknit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Vibram Megagrip -->
+            <div class="group bg-white rounded-3xl p-7 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded-lg bg-coral text-white font-mono text-[10px] font-black uppercase tracking-wider">Compound 04</span>
+                        <span class="text-xs font-mono text-dark/40">RUBBER</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-grotesk font-black text-xl text-dark uppercase group-hover:text-hyperblue transition">Vibram Megagrip Outsole</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Military-grade vulcanized rubber engineered with micro-siping channels that displace surface water film to generate adhesive friction on wet rock.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-black/5 space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between text-dark/70">
+                        <span>Wet Friction Coeff:</span>
+                        <strong class="text-dark font-black">0.94 (Lab Standard)</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Shore Hardness:</span>
+                        <strong class="text-dark font-black">68A Zonal</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Benchmark Models:</span>
+                        <span class="text-hyperblue font-bold">Hoka Speedgoat, Salomon S/Lab</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: OrthoLite Eco -->
+            <div class="group bg-white rounded-3xl p-7 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500 text-white font-mono text-[10px] font-black uppercase tracking-wider">Compound 05</span>
+                        <span class="text-xs font-mono text-dark/40">INSOLE</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-grotesk font-black text-xl text-dark uppercase group-hover:text-hyperblue transition">OrthoLite Bio-Polyol Bed</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Open-cell plant-based polyol foam formulated with anti-microbial silver salt ions, preventing moisture saturation and fungal growth.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-black/5 space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between text-dark/70">
+                        <span>Cushion Retention:</span>
+                        <strong class="text-dark font-black">&gt; 95% Over Time</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Bio-Based Content:</span>
+                        <strong class="text-dark font-black">12% Castor Bean Oil</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Benchmark Models:</span>
+                        <span class="text-hyperblue font-bold">Asics Gel-Kayano, New Balance 990</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Vectran Flywire -->
+            <div class="group bg-white rounded-3xl p-7 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded-lg bg-purple-600 text-white font-mono text-[10px] font-black uppercase tracking-wider">Compound 06</span>
+                        <span class="text-xs font-mono text-dark/40">LOCKDOWN</span>
+                    </div>
+                    <div class="space-y-1.5">
+                        <h3 class="font-grotesk font-black text-xl text-dark uppercase group-hover:text-hyperblue transition">Vectran Tensile Flywire</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Liquid-crystal polymer filaments wrapped around the lacing eyelets and anchored directly under the footbed to stabilize against sharp directional cuts.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-black/5 space-y-2 text-[11px] font-mono">
+                    <div class="flex justify-between text-dark/70">
+                        <span>Tensile Strength:</span>
+                        <strong class="text-dark font-black">5x Steel by Weight</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Elongation @ Break:</span>
+                        <strong class="text-dark font-black">&lt; 3.3% Precision</strong>
+                    </div>
+                    <div class="flex justify-between text-dark/70">
+                        <span>Benchmark Models:</span>
+                        <span class="text-hyperblue font-bold">Nike LeBron NXXT, Metcon 9</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 3: THE AI SCANNER ==================== -->
+    <section id="scanner-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full">
+        
+        <div class="text-center space-y-3 max-w-2xl mx-auto mb-14">
+            <span class="inline-block px-3.5 py-1.5 rounded-full bg-dark text-lime font-grotesk font-black text-xs uppercase tracking-widest shadow-sm">
+                Optical Footwear Scanner
+            </span>
+            <h2 class="font-grotesk font-black text-4xl sm:text-6xl tracking-tight uppercase">
+                DROP A SHOE.<br>
+                <span class="text-hyperblue">GET THE WHOLE STORY.</span>
+            </h2>
+            <p class="text-dark/60 text-sm sm:text-base font-medium">
+                Upload a photo, capture one via camera, or choose a reference model. Our model identifies the silhouette and visual properties instantly.
+            </p>
+        </div>
+
+        <!-- Quick Instant Category Selector (Without Upload) -->
+        <div class="bg-white border border-black/8 rounded-3xl p-4 sm:p-5 shadow-sm mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+            <div class="flex items-center space-x-2.5 text-xs font-grotesk font-bold uppercase text-dark">
+                <span class="p-1.5 bg-lime rounded-lg text-dark flex items-center justify-center">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </span>
+                <span>Instant Style Lookup (Without Uploading):</span>
+            </div>
+            <select id="quick-category-select" onchange="lookupSelectedCategory(this.value)" class="w-full sm:w-80 px-4 py-2.5 bg-offwhite border border-black/10 rounded-2xl text-xs font-grotesk font-bold uppercase focus:outline-none focus:ring-2 focus:ring-dark text-dark">
+                <option value="">-- Choose Any Footwear Style (33+) --</option>
+                {% for cat in all_categories %}
+                <option value="{{ cat.key }}">{{ cat.name }} [{{ cat.group.upper() }}]</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Scanner Main Container Grid (Two Columns) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+            
+            <!-- Left Scanner Input Card (5 Cols) -->
+            <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-black/8 shadow-floating space-y-6">
+                
+                <div class="flex items-center justify-between border-b border-black/5 pb-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-7 h-7 rounded-lg bg-dark text-lime flex items-center justify-center">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="font-grotesk font-black text-base uppercase text-dark">Input Source</h3>
+                    </div>
+                    <span class="font-mono text-[11px] text-dark/40 uppercase">Step 01 / 02</span>
+                </div>
+
+                <!-- Input Mode Tabs -->
+                <div class="flex bg-offwhite p-1 rounded-2xl text-xs font-grotesk font-bold uppercase gap-1">
+                    <button id="tab-upload-btn" class="flex-1 py-2.5 rounded-xl bg-dark text-lime font-black shadow-xs transition flex items-center justify-center space-x-1.5" onclick="switchTab('upload')">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                        <span>File Upload</span>
+                    </button>
+                    <button id="tab-camera-btn" class="flex-1 py-2.5 rounded-xl text-dark/60 hover:text-dark transition flex items-center justify-center space-x-1.5" onclick="switchTab('camera')">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <span>Webcam</span>
+                    </button>
+                    <button id="tab-sample-btn" class="flex-1 py-2.5 rounded-xl text-dark/60 hover:text-dark transition flex items-center justify-center space-x-1.5" onclick="switchTab('sample')">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                        <span>Samples</span>
+                    </button>
+                </div>
+
+                <!-- 1. File Upload Dropzone -->
+                <div id="view-upload" class="space-y-3">
+                    <div id="drop-zone" class="border-2 border-dashed border-black/15 rounded-3xl p-8 text-center hover:border-dark cursor-pointer transition bg-offwhite/50 hover:bg-offwhite flex flex-col items-center justify-center group">
+                        <div class="w-14 h-14 rounded-2xl bg-dark text-lime flex items-center justify-center mb-3 group-hover:scale-105 transition">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                        </div>
+                        <p class="font-grotesk font-black text-sm text-dark uppercase mb-1">Click or Drop Shoe Photo Here</p>
+                        <p class="font-mono text-[11px] text-dark/40 uppercase">JPG, PNG, WEBP &bull; Max 16MB</p>
+                        <input type="file" id="file-input" accept="image/*" class="hidden">
+                    </div>
+                </div>
+
+                <!-- 2. Camera View -->
+                <div id="view-camera" class="hidden space-y-3">
+                    <div class="relative bg-dark rounded-3xl overflow-hidden aspect-square flex items-center justify-center shadow-inner">
+                        <video id="webcam-video" autoplay playsinline class="w-full h-full object-cover"></video>
+                        <div id="camera-placeholder" class="text-white/40 text-xs font-mono text-center p-6 space-y-2">
+                            <div class="w-12 h-12 mx-auto rounded-2xl bg-white/10 flex items-center justify-center text-lime mb-2">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <p>Camera inactive. Click button below to activate.</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button id="camera-start-btn" onclick="startCamera()" class="flex-1 py-3 px-4 bg-dark text-white rounded-2xl text-xs font-grotesk font-black uppercase tracking-wider hover:bg-black transition">
+                            Start Camera
+                        </button>
+                        <button id="camera-capture-btn" onclick="capturePhoto()" disabled class="flex-1 py-3 px-4 bg-lime text-dark rounded-2xl text-xs font-grotesk font-black uppercase tracking-wider disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center justify-center space-x-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path></svg>
+                            <span>Snap Photo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. Samples View -->
+                <div id="view-sample" class="hidden space-y-3">
+                    <p class="text-xs font-mono text-dark/50 uppercase">Pre-loaded footwear samples:</p>
+                    <div class="grid grid-cols-3 gap-2.5">
+                        {% for sample in samples %}
+                        <div onclick="selectSample('{{ sample }}')" class="border border-black/10 rounded-2xl p-2 cursor-pointer hover:border-dark hover:shadow-md transition bg-offwhite text-center group">
+                            <img src="/samples/{{ sample }}" alt="{{ sample }}" class="w-full h-20 object-cover rounded-xl mb-1 group-hover:scale-102 transition">
+                            <span class="text-[11px] font-grotesk font-bold text-dark block truncate uppercase">{{ sample.replace('.png', '').replace('.jpg', '').replace('_', ' ') }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Selected Image Preview & Scan Laser Container -->
+                <div id="preview-section" class="border-t border-black/5 pt-4 hidden space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono uppercase font-bold text-dark/50">Ready For Neural Analysis</span>
+                        <button onclick="clearSelectedImage()" class="text-xs text-coral hover:text-red-700 font-bold uppercase font-mono">Remove</button>
+                    </div>
+                    
+                    <!-- Preview with Laser Scan Effect -->
+                    <div class="relative rounded-2xl overflow-hidden bg-dark border border-black/10 aspect-video flex items-center justify-center">
+                        <img id="preview-img" src="" alt="Selected Preview" class="max-h-full max-w-full object-contain">
+                        
+                        <!-- High-Tech Animated Laser Line -->
+                        <div id="scan-laser-line" class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-lime to-transparent shadow-[0_0_15px_#C8FF00] hidden animate-scan-beam"></div>
+                    </div>
+
+                    <button id="analyze-btn" onclick="analyzeImage()" class="w-full py-4 px-4 bg-dark hover:bg-lime text-lime hover:text-dark font-grotesk font-black text-sm uppercase tracking-wider rounded-2xl shadow-md transition-all flex items-center justify-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <span>RUN AI STYLE ANALYSIS</span>
+                    </button>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loading-state" class="hidden py-8 text-center space-y-3">
+                    <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-dark border-t-lime"></div>
+                    <p class="font-grotesk font-black text-sm text-dark uppercase">AI ANALYZING SILHOUETTE...</p>
+                    <p class="font-mono text-[11px] text-dark/40 uppercase">MobileNetV2 Forward Pass in progress</p>
+                </div>
+
+                <!-- Error Alert -->
+                <div id="error-alert" class="hidden p-4 bg-red-50 border border-red-200 text-red-700 text-xs rounded-2xl font-mono font-medium"></div>
+
+                <!-- Recent Searches Box -->
+                <div id="history-box" class="pt-4 border-t border-black/5 space-y-3 hidden">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-grotesk font-black text-xs uppercase tracking-wider text-dark flex items-center space-x-1.5">
+                            <svg class="w-3.5 h-3.5 text-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Recent Local Scans</span>
+                        </h4>
+                        <button onclick="clearScanHistory()" class="font-mono text-[10px] uppercase text-dark/40 hover:text-coral transition">Clear</button>
+                    </div>
+                    <div id="history-list" class="space-y-2">
+                        <!-- Populated by loadScanHistory -->
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Results & Editorial Output (7 Cols) -->
+            <div class="lg:col-span-7">
+                
+                <!-- Awaiting Image Placeholder -->
+                <div id="empty-state" class="bg-white rounded-3xl p-10 sm:p-14 border border-black/8 text-center shadow-floating flex flex-col items-center justify-center min-h-[460px] space-y-4">
+                    <div class="w-20 h-20 rounded-2xl bg-offwhite flex items-center justify-center p-3 shadow-inner border border-black/5">
+                        <img src="/static/images/icons/sneakers.svg" class="w-12 h-12 object-contain" alt="Footwear">
+                    </div>
+                    <div class="max-w-md space-y-2">
+                        <h3 class="font-grotesk font-black text-2xl uppercase text-dark">Awaiting Footwear Image</h3>
+                        <p class="text-xs sm:text-sm text-dark/60 leading-relaxed font-medium">
+                            Upload a photo, capture one via camera, pick a sample, or use the quick lookup selector above to explore styling advice, care rules, and direct shopping links across 33+ categories.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Actual Results Section (Populated dynamically) -->
+                <div id="results-container" class="hidden space-y-6">
+                    
+                    <!-- Identification Banner -->
+                    <div class="bg-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+                        
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+                            <div class="flex items-center space-x-4">
+                                <div id="res-icon-wrap" class="w-20 h-20 sm:w-24 sm:h-24 p-3 bg-white/10 rounded-2xl flex items-center justify-center shrink-0 border border-white/10">
+                                    <img id="res-icon" src="/static/images/icons/sneakers.svg" class="w-14 h-14 sm:w-16 sm:h-16 object-contain" alt="Identified Footwear">
+                                </div>
+                                <div>
+                                    <span class="font-mono text-[11px] text-lime uppercase tracking-widest font-bold">Identified As</span>
+                                    <h2 id="res-class" class="font-grotesk font-black text-3xl sm:text-4xl uppercase text-white leading-none mt-1">Sneakers</h2>
+                                    <p id="res-tagline" class="text-xs text-white/60 mt-1 font-medium italic"></p>
+                                </div>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <div id="res-confidence" class="font-grotesk font-black text-3xl sm:text-4xl text-lime">98.4%</div>
+                                <span id="res-badge" class="inline-block mt-1 px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                    High Confidence
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Categories / Product Variations -->
+                        <div id="sub-categories-section" class="space-y-2">
+                            <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block">
+                                Sub-Categories & Specific Silhouettes in this Category:
+                            </span>
+                            <div id="sub-categories-list" class="flex flex-wrap gap-2">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Probability Breakdown Bars -->
+                        <div class="space-y-3 pt-4 border-t border-white/10">
+                            <div class="flex items-center justify-between font-mono text-[11px] text-white/50 uppercase">
+                                <span>Why We Think So // Softmax Distribution</span>
+                                <span>Probability</span>
+                            </div>
+                            <div id="prob-bars" class="space-y-2">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ==================== DEEP VISUAL FEATURE EXACT MATCH STUDIO ==================== -->
+                    <div class="bg-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 border border-white/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-5">
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-6 h-6 rounded-lg bg-lime/20 text-lime flex items-center justify-center">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"></circle><circle cx="12" cy="12" r="4" stroke-width="2"></circle><circle cx="12" cy="12" r="1" fill="currentColor"></circle></svg>
+                                    </div>
+                                    <h3 class="font-grotesk font-black text-lg text-white uppercase tracking-tight">Exact Shoe Pair Matcher</h3>
+                                </div>
+                                <p class="font-mono text-[11px] text-white/50 mt-0.5">MobileNetV2 1280-d convolutional embedding visual search (Not color-based)</p>
+                            </div>
+                            <a id="lens-search-btn" href="https://lens.google.com/" target="_blank" class="px-4 py-2 bg-hyperblue hover:bg-blue-600 text-white font-grotesk font-bold text-xs uppercase tracking-wider rounded-full shadow-md transition self-start sm:self-auto flex items-center space-x-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span>Web-Wide Reverse Search (Google Lens) &rarr;</span>
+                            </a>
+                        </div>
+
+                        <!-- Top Visual Match Featured Banner -->
+                        <div id="top-visual-match-banner" class="bg-dark-card rounded-2xl p-5 border border-lime/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <div class="space-y-2 max-w-xl">
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-lime/20 text-lime border border-lime/30 uppercase tracking-wide">
+                                        Top Deep-Feature Match
+                                    </span>
+                                    <span id="top-match-similarity" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                                        98.8% Visual Match
+                                    </span>
+                                </div>
+                                <h4 id="top-match-name" class="font-grotesk font-black text-xl text-white uppercase leading-tight">Nike Air Force 1 '07 Low</h4>
+                                <p id="top-match-specs" class="text-xs text-white/70 leading-relaxed font-medium"></p>
+                                <div class="flex items-center space-x-3 pt-1 text-xs font-mono">
+                                    <span class="text-white/40">Est. Retail Price:</span>
+                                    <span id="top-match-price" class="text-lime font-black text-sm">₹8,195</span>
+                                </div>
+                            </div>
+
+                            <!-- Brand Refine Selector -->
+                            <div class="flex flex-col gap-2 flex-shrink-0 self-start md:self-auto">
+                                <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-white/40">Filter By Brand:</span>
+                                <select id="refine-brand" onchange="triggerExactMatchRefinement()" class="bg-dark text-white text-xs font-grotesk font-bold uppercase rounded-xl px-3 py-2 border border-white/20 focus:outline-none focus:ring-1 focus:ring-lime">
+                                    <option value="All">All Brands</option>
+                                    <option value="Nike">Nike</option>
+                                    <option value="Adidas">Adidas</option>
+                                    <option value="Puma">Puma</option>
+                                    <option value="Clarks">Clarks</option>
+                                    <option value="Woodland">Woodland</option>
+                                    <option value="Red Tape">Red Tape</option>
+                                    <option value="Bata">Bata</option>
+                                    <option value="Birkenstock">Birkenstock</option>
+                                    <option value="Crocs">Crocs</option>
+                                    <option value="Timberland">Timberland</option>
+                                    <option value="Dr. Martens">Dr. Martens</option>
+                                    <option value="Converse">Converse</option>
+                                    <option value="Vans">Vans</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 1-Click Buy Links on Portals for Exact Pair -->
+                        <div class="space-y-2">
+                            <span class="font-mono text-[11px] font-bold text-white/60 uppercase block">Buy This Exact Pair Across Shopping Portals:</span>
+                            <div id="exact-portal-buttons" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                                <!-- Populated with exact deep-links -->
+                            </div>
+                        </div>
+
+                        <!-- Alternative Close Visual Match Pairs -->
+                        <div class="space-y-3 pt-4 border-t border-white/10">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-white/40 block">
+                                Other High-Similarity Visual Footwear Pairs:
+                            </span>
+                            <div id="curated-matches-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <!-- Populated with exact cards -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Styling Advice & Care Protocols Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Style Tips -->
+                        <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-3">
+                            <div class="flex items-center space-x-2 text-dark font-grotesk font-black text-sm uppercase">
+                                <div class="w-6 h-6 rounded-lg bg-hyperblue/10 text-hyperblue flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                                </div>
+                                <h4>Styling Advice</h4>
+                            </div>
+                            <p id="res-style" class="text-xs text-dark/70 leading-relaxed font-medium"></p>
+                            <div class="pt-2 border-t border-black/5">
+                                <span class="font-mono text-[10px] uppercase font-bold text-dark/50 block mb-1">Best Occasions:</span>
+                                <p id="res-occasion" class="text-xs text-dark font-semibold"></p>
+                            </div>
+                        </div>
+
+                        <!-- Care Guide -->
+                        <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-3">
+                            <div class="flex items-center space-x-2 text-dark font-grotesk font-black text-sm uppercase">
+                                <div class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                                </div>
+                                <h4>Material Care</h4>
+                            </div>
+                            <p id="res-care" class="text-xs text-dark/70 leading-relaxed font-medium"></p>
+                            <div class="pt-2 border-t border-black/5">
+                                <span class="font-mono text-[10px] uppercase font-bold text-dark/50 block mb-1">Estimated Retail Range:</span>
+                                <p id="res-price" class="text-xs font-grotesk font-black text-hyperblue"></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Stores Pill Links -->
+                    <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-grotesk font-black text-xs uppercase tracking-wider text-dark">
+                                Available Across Retail Stores:
+                            </h4>
+                            <span id="res-stores" class="text-xs font-mono text-dark/40"></span>
+                        </div>
+                        <div id="shopping-buttons" class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION: 6-STAGE COMPUTER VISION INFERENCE PIPELINE ==================== -->
+    <section id="pipeline-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full space-y-16">
+        
+        <div class="text-center space-y-3 max-w-2xl mx-auto">
+            <span class="inline-block px-3.5 py-1.5 rounded-full bg-dark text-lime font-mono font-bold text-xs uppercase tracking-widest shadow-sm">
+                Inference Topology // 6-Stage Pipeline
+            </span>
+            <h2 class="font-grotesk font-black text-4xl sm:text-6xl tracking-tight uppercase text-dark">
+                FROM RAW PIXELS<br>
+                <span class="text-hyperblue">TO EXACT SILHOUETTE.</span>
+            </h2>
+            <p class="text-dark/70 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed font-sans">
+                A look under the hood of our neural vision pipeline: how 50,000+ visual features transform into instant footwear classification and cross-portal shopping links.
+            </p>
+        </div>
+
+        <!-- 6 Step Pipeline Flow -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-4 hover:border-dark hover:shadow-lg transition">
+                <div class="flex items-center justify-between">
+                    <span class="w-9 h-9 rounded-2xl bg-dark text-lime font-mono font-black text-xs flex items-center justify-center">01</span>
+                    <span class="text-[10px] font-mono font-bold text-black/40 uppercase">INGESTION</span>
+                </div>
+                <h3 class="font-grotesk font-black text-lg text-dark uppercase">Bilinear RGB Normalization</h3>
+                <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                    Uploaded or webcam captured images are downsampled to a uniform <code class="font-mono bg-black/5 px-1 rounded">224x224x3</code> tensor with zero-centered pixel floats scaled between 0.0 and 1.0.
+                </p>
+                <div class="pt-2 border-t border-black/5 flex items-center justify-between text-[11px] font-mono text-dark/50">
+                    <span>Input: Any Aspect Ratio</span>
+                    <span class="text-dark font-bold">224 x 224 x 3</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-4 hover:border-dark hover:shadow-lg transition">
+                <div class="flex items-center justify-between">
+                    <span class="w-9 h-9 rounded-2xl bg-dark text-lime font-mono font-black text-xs flex items-center justify-center">02</span>
+                    <span class="text-[10px] font-mono font-bold text-black/40 uppercase">SEGMENTATION</span>
+                </div>
+                <h3 class="font-grotesk font-black text-lg text-dark uppercase">Shadow & Background Stripping</h3>
+                <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                    Spatial gradient edge filters isolate the footwear silhouette from carpet, hardwood floors, shadows, and ambient background clutter.
+                </p>
+                <div class="pt-2 border-t border-black/5 flex items-center justify-between text-[11px] font-mono text-dark/50">
+                    <span>Saliency Mask:</span>
+                    <span class="text-hyperblue font-bold">Dynamic Contrast</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-4 hover:border-dark hover:shadow-lg transition">
+                <div class="flex items-center justify-between">
+                    <span class="w-9 h-9 rounded-2xl bg-lime text-dark font-mono font-black text-xs flex items-center justify-center">03</span>
+                    <span class="text-[10px] font-mono font-bold text-black/40 uppercase">CONVOLUTION</span>
+                </div>
+                <h3 class="font-grotesk font-black text-lg text-dark uppercase">Depthwise Bottlenecks</h3>
+                <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                    53 inverted residual bottleneck blocks extract micro-textures (perforations, stitching, mudguards, air bubbles, lugged outsoles).
+                </p>
+                <div class="pt-2 border-t border-black/5 flex items-center justify-between text-[11px] font-mono text-dark/50">
+                    <span>Backbone Model:</span>
+                    <span class="text-dark font-bold">MobileNetV2</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-4 hover:border-dark hover:shadow-lg transition">
+                <div class="flex items-center justify-between">
+                    <span class="w-9 h-9 rounded-2xl bg-dark text-white font-mono font-black text-xs flex items-center justify-center">04</span>
+                    <span class="text-[10px] font-mono font-bold text-black/40 uppercase">LATENT SPACE</span>
+                </div>
+                <h3 class="font-grotesk font-black text-lg text-dark uppercase">1280-D L2 Projection</h3>
+                <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                    Global average pooling converts spatial convolutional maps into a compact 1,280-dimensional latent vector normalized on a hyper-sphere.
+                </p>
+                <div class="pt-2 border-t border-black/5 flex items-center justify-between text-[11px] font-mono text-dark/50">
+                    <span>Latent Dimensions:</span>
+                    <span class="text-emerald-600 font-bold">1,280 Floats</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-4 hover:border-dark hover:shadow-lg transition">
+                <div class="flex items-center justify-between">
+                    <span class="w-9 h-9 rounded-2xl bg-dark text-white font-mono font-black text-xs flex items-center justify-center">05</span>
+                    <span class="text-[10px] font-mono font-bold text-black/40 uppercase">PROBABILITY</span>
+                </div>
+                <h3 class="font-grotesk font-black text-lg text-dark uppercase">Softmax Categorization</h3>
+                <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                    A dense classification head computes the softmax distribution across 33+ footwear classes (sneakers, boots, loafers, sandals, heels, ethnic).
+                </p>
+                <div class="pt-2 border-t border-black/5 flex items-center justify-between text-[11px] font-mono text-dark/50">
+                    <span>Accuracy (Top-1):</span>
+                    <span class="text-dark font-bold">98.4% Confidence</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 border border-black/8 shadow-sm space-y-4 hover:border-dark hover:shadow-lg transition">
+                <div class="flex items-center justify-between">
+                    <span class="w-9 h-9 rounded-2xl bg-hyperblue text-white font-mono font-black text-xs flex items-center justify-center">06</span>
+                    <span class="text-[10px] font-mono font-bold text-black/40 uppercase">PORTAL MATCH</span>
+                </div>
+                <h3 class="font-grotesk font-black text-lg text-dark uppercase">Vector Nearest Neighbor</h3>
+                <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                    Calculates cosine similarity against our verified product database, returning matching shoe models with direct 1-click buy links on Amazon, Myntra, and Flipkart.
+                </p>
+                <div class="pt-2 border-t border-black/5 flex items-center justify-between text-[11px] font-mono text-dark/50">
+                    <span>Latency:</span>
+                    <span class="text-lime bg-dark px-1.5 py-0.5 rounded font-black">&lt; 15 ms</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Latency & Specs Ribbon -->
+        <div class="bg-dark rounded-3xl p-6 text-white flex flex-wrap items-center justify-between gap-6 border border-white/10 shadow-xl">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-3 rounded-full bg-lime animate-pulse"></div>
+                <span class="font-grotesk font-black text-sm uppercase tracking-wider">Engine Performance Benchmarks</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-6 text-xs font-mono">
+                <div>
+                    <span class="text-white/40 block text-[10px]">COLD START</span>
+                    <span class="text-white font-bold">&lt; 1.2s</span>
+                </div>
+                <div>
+                    <span class="text-white/40 block text-[10px]">CPU INFERENCE</span>
+                    <span class="text-lime font-bold">~68 ms</span>
+                </div>
+                <div>
+                    <span class="text-white/40 block text-[10px]">WEBGL GPU</span>
+                    <span class="text-hyperblue font-bold">~14 ms</span>
+                </div>
+                <div>
+                    <span class="text-white/40 block text-[10px]">BACKBONE PARAMS</span>
+                    <span class="text-white font-bold">2.42 Million</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 5: SHOE X-RAY & ANATOMY SECTION ==================== -->
+    <section id="xray-section" class="bg-dark text-white py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <span class="inline-block px-3 py-1 rounded-full bg-white/10 text-lime font-mono text-xs uppercase tracking-widest">
+                    Shoe Anatomy &bull; X-Ray Breakdown
+                </span>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight">
+                    ENGINEERED FOR<br>
+                    <span class="text-lime">EVERY MILLIMETER.</span>
+                </h2>
+                <p class="text-white/60 text-xs sm:text-sm max-w-lg mx-auto">
+                    Hover or click the interactive hotspots to inspect key engineering components of contemporary footwear architecture.
+                </p>
+            </div>
+
+            <!-- Anatomy Interactive Showcase -->
+            <div class="relative bg-dark-card border border-white/10 rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row items-center justify-between gap-10">
+                
+                <!-- Central Visual Shoe with Hotspots -->
+                <div class="relative w-full max-w-lg mx-auto flex items-center justify-center min-h-[300px] sm:min-h-[360px] p-4">
+                    <svg viewBox="0 0 500 280" class="w-full h-auto filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outsole Tread -->
+                        <path d="M45,220 C120,240 380,240 455,215 C465,210 460,195 440,195 C380,200 160,200 80,192 C55,192 38,205 45,220 Z" fill="#35E0D0" fill-opacity="0.25" stroke="#35E0D0" stroke-width="2.5" />
+                        <!-- Midsole Foam Cushion -->
+                        <path d="M60,195 C140,202 360,202 440,192 C450,180 440,160 415,150 C380,135 320,85 275,85 C240,85 220,120 180,145 C130,165 70,170 60,195 Z" fill="#2457FF" fill-opacity="0.2" stroke="#2457FF" stroke-width="2.5" />
+                        <!-- Upper Mesh Vamp -->
+                        <path d="M80,185 C140,188 230,170 270,120 C240,95 210,130 140,155 C100,168 85,175 80,185 Z" fill="#C8FF00" fill-opacity="0.2" stroke="#C8FF00" stroke-width="2" />
+                        <!-- Tongue & Lacing System -->
+                        <path d="M220,120 L275,85 L310,135 L260,155 Z" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-width="2" />
+                        <line x1="235" y1="130" x2="270" y2="105" stroke="#FFFFFF" stroke-width="2.5" />
+                        <line x1="245" y1="142" x2="280" y2="117" stroke="#FFFFFF" stroke-width="2.5" />
+                        <line x1="255" y1="154" x2="290" y2="129" stroke="#FFFFFF" stroke-width="2.5" />
+                        <!-- Heel Counter & Collar Cup -->
+                        <path d="M320,135 C380,140 420,150 425,175 C420,150 405,115 370,105 C335,95 320,110 320,135 Z" fill="#FF5C5C" fill-opacity="0.25" stroke="#FF5C5C" stroke-width="2" />
+                    </svg>
+
+                    <!-- Hotspot 01: Upper -->
+                    <button onclick="setAnatomy('upper')" title="Upper Mesh" class="absolute top-[48%] left-[28%] w-8 h-8 rounded-full bg-lime text-dark font-grotesk font-black text-xs flex items-center justify-center shadow-glow-lime hover:scale-125 transition transform z-20">
+                        01
+                    </button>
+
+                    <!-- Hotspot 02: Laces -->
+                    <button onclick="setAnatomy('laces')" title="Lacing Harness" class="absolute top-[32%] left-[52%] w-8 h-8 rounded-full bg-white text-dark font-grotesk font-black text-xs flex items-center justify-center hover:scale-125 transition transform z-20 shadow-md">
+                        02
+                    </button>
+
+                    <!-- Hotspot 03: Midsole -->
+                    <button onclick="setAnatomy('midsole')" title="Midsole Foam" class="absolute top-[65%] left-[55%] w-8 h-8 rounded-full bg-hyperblue text-white font-grotesk font-black text-xs flex items-center justify-center hover:scale-125 transition transform shadow-glow-blue z-20">
+                        03
+                    </button>
+
+                    <!-- Hotspot 04: Heel -->
+                    <button onclick="setAnatomy('heel')" title="Heel Stabilizer" class="absolute top-[40%] right-[18%] w-8 h-8 rounded-full bg-coral text-white font-grotesk font-black text-xs flex items-center justify-center hover:scale-125 transition transform z-20 shadow-md">
+                        04
+                    </button>
+
+                    <!-- Hotspot 05: Outsole -->
+                    <button onclick="setAnatomy('outsole')" title="Outsole Traction" class="absolute bottom-[10%] left-[22%] w-8 h-8 rounded-full bg-aqua text-dark font-grotesk font-black text-xs flex items-center justify-center hover:scale-125 transition transform z-20 shadow-md">
+                        05
+                    </button>
+                </div>
+
+                <!-- Info Readout Panel -->
+                <div class="w-full lg:max-w-md bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span id="anatomy-num" class="font-mono text-lime text-xs font-bold uppercase tracking-widest">HOTSPOT // 03</span>
+                        <span class="text-[10px] font-mono text-white/40 uppercase">CLICK POINTS TO INSPECT</span>
+                    </div>
+                    <h3 id="anatomy-title" class="font-grotesk font-black text-2xl uppercase text-white">MIDSOLE CUSHIONING</h3>
+                    <p id="anatomy-desc" class="text-xs sm:text-sm text-white/70 leading-relaxed">
+                        Lightweight supercritical nitrogen-infused foam engineered for high-rebound energy return and shock absorption under prolonged impact.
+                    </p>
+                    <div id="anatomy-metric" class="pt-2 text-[11px] font-mono text-lime flex items-center space-x-2">
+                        <span>● COMPRESSION SET: &lt;12%</span>
+                        <span>&bull;</span>
+                        <span>DENSITY: 0.16 g/cm³</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 6: STYLE DISCOVERY ==================== -->
+    <section id="style-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full space-y-12">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="space-y-2">
+                <span class="inline-block px-3 py-1 rounded-full bg-dark text-lime font-grotesk font-black text-xs uppercase tracking-widest">
+                    Style Taxonomy
+                </span>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight">
+                    FIND YOUR STYLE.
+                </h2>
+            </div>
+            <a href="/catalog" class="px-6 py-3 rounded-full bg-dark text-white hover:bg-lime hover:text-dark font-grotesk font-bold text-xs uppercase tracking-wider transition self-start md:self-auto">
+                View Full 33+ Category Catalog &rarr;
+            </a>
+        </div>
+
+        <!-- Editorial Category Visual Blocks -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-lime transition duration-300">
+                        <img src="/static/images/products/nike_street_pro.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Sneakers">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">01</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">SNEAKERS</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Street & Athleisure</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-hyperblue transition duration-300">
+                        <img src="/static/images/products/hero_air_01.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Running">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">02</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">RUNNING</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Road & Marathon Foam</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-coral transition duration-300">
+                        <img src="/static/images/products/trend_gorpcore_trail.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Boots">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">03</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">BOOTS</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Chelsea & Rugged Trail</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-lime transition duration-300">
+                        <img src="/static/images/products/trend_lugged_loafer.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Loafers">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">04</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">LOAFERS</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Penny, Tassel & Dress</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-lime transition duration-300">
+                        <img src="/static/images/products/trend_bio_clog.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Mules and Clogs">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">05</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">CLOGS & MULES</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Bio-Foam & Slip-On</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-coral transition duration-300">
+                        <img src="/static/images/products/hero_urban_02.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Urban Streetwear">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">06</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">URBAN CASUAL</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">City Walking & Lifestyle</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-hyperblue transition duration-300">
+                        <img src="/static/images/products/adidas_court_flow.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Court Classics">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">07</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">COURT CLASSICS</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Tennis & Low-Profile</p>
+                </div>
+            </a>
+
+            <a href="/catalog" class="group bg-white rounded-3xl p-5 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div class="flex justify-between items-start">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden bg-black/[0.04] border border-black/5 group-hover:scale-105 group-hover:border-lime transition duration-300">
+                        <img src="/static/images/products/hero_form_03.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Everyday Trainers">
+                    </div>
+                    <span class="font-mono text-[11px] font-bold text-dark/40 group-hover:text-dark transition">08</span>
+                </div>
+                <div class="pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-grotesk font-black text-lg uppercase text-dark group-hover:text-hyperblue transition">TRAINERS</h3>
+                        <span class="text-xs text-dark/40 group-hover:text-dark group-hover:translate-x-1 transition">&rarr;</span>
+                    </div>
+                    <p class="text-xs text-dark/60 font-medium">Everyday & Gym Performance</p>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 7: AI STYLE RECOMMENDATIONS ==================== -->
+    <section class="bg-dark text-white py-24 sm:py-32 px-4 sm:px-8">
+        
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="space-y-2">
+                <span class="inline-block px-3 py-1 rounded-full bg-white/10 text-lime font-mono text-xs uppercase tracking-widest">
+                    Algorithmic Curation
+                </span>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight">
+                    YOUR SHOE. YOUR STYLE.
+                </h2>
+                <p class="text-white/60 text-xs sm:text-sm">Recommended pairs based on current street and performance trends.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-dark-card border border-white/10 rounded-3xl p-6 space-y-5 flex flex-col justify-between hover:border-lime/60 transition group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] uppercase font-bold text-lime">94% Style Match</span>
+                            <span class="text-xs font-mono text-white/40">AIR_SERIES</span>
+                        </div>
+                        <div class="w-full aspect-video rounded-2xl bg-black border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-lime/40 transition">
+                            <img src="/static/images/products/nike_street_pro.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Nike Street Pro">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                            <span class="absolute bottom-2.5 right-3 font-mono text-[9px] uppercase tracking-wider text-lime bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-lime/30 font-bold">AIR // ZERO-G</span>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] text-white/40 uppercase">Nike Performance</span>
+                            <h3 class="font-grotesk font-black text-lg text-white uppercase">Nike Street Pro Low</h3>
+                            <p class="text-xs text-white/60 mt-1">Lightweight everyday lifestyle sneaker with responsive Air cushioning.</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="font-grotesk font-black text-lg text-white">₹7,995</span>
+                        <a href="https://www.amazon.in/s?k=Nike+Street+Pro" target="_blank" class="px-4 py-2 bg-lime hover:bg-[#b8eb00] text-dark font-grotesk font-black text-xs uppercase tracking-wider rounded-full transition">
+                            View Shoe &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-3xl p-6 space-y-5 flex flex-col justify-between hover:border-hyperblue/60 transition group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] uppercase font-bold text-hyperblue">91% Style Match</span>
+                            <span class="text-xs font-mono text-white/40">COURT_SERIES</span>
+                        </div>
+                        <div class="w-full aspect-video rounded-2xl bg-black border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-hyperblue/40 transition">
+                            <img src="/static/images/products/adidas_court_flow.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Adidas Daily Flow">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                            <span class="absolute bottom-2.5 right-3 font-mono text-[9px] uppercase tracking-wider text-hyperblue bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-hyperblue/30 font-bold">COURT // VULC</span>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] text-white/40 uppercase">Adidas Originals</span>
+                            <h3 class="font-grotesk font-black text-lg text-white uppercase">Adidas Daily Flow</h3>
+                            <p class="text-xs text-white/60 mt-1">Minimalist tennis court silhouette with sustainable synthetic leather upper.</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="font-grotesk font-black text-lg text-white">₹6,499</span>
+                        <a href="https://www.myntra.com/adidas-daily-flow" target="_blank" class="px-4 py-2 bg-hyperblue hover:bg-blue-600 text-white font-grotesk font-black text-xs uppercase tracking-wider rounded-full transition">
+                            View Shoe &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-3xl p-6 space-y-5 flex flex-col justify-between hover:border-coral/60 transition group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-[10px] uppercase font-bold text-coral">89% Style Match</span>
+                            <span class="text-xs font-mono text-white/40">SUEDE_SERIES</span>
+                        </div>
+                        <div class="w-full aspect-video rounded-2xl bg-black border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-coral/40 transition">
+                            <img src="/static/images/products/puma_suede_retro.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Puma Signature Suede">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                            <span class="absolute bottom-2.5 right-3 font-mono text-[9px] uppercase tracking-wider text-coral bg-black/70 backdrop-blur-md px-2.5 py-1 rounded border border-coral/30 font-bold">SUEDE // RETRO</span>
+                        </div>
+                        <div>
+                            <span class="font-mono text-[10px] text-white/40 uppercase">Puma Heritage</span>
+                            <h3 class="font-grotesk font-black text-lg text-white uppercase">Puma Signature Suede</h3>
+                            <p class="text-xs text-white/60 mt-1">Rich textured suede finish with contrasting lateral Formstrip and rubber cupsole.</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="font-grotesk font-black text-lg text-white">₹5,299</span>
+                        <a href="https://www.ajio.com/search/?text=Puma+Suede" target="_blank" class="px-4 py-2 bg-white text-dark hover:bg-lime font-grotesk font-black text-xs uppercase tracking-wider rounded-full transition">
+                            View Shoe &rarr;
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION: 2026 GLOBAL FOOTWEAR TREND FORECAST ==================== -->
+    <section id="trends-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full space-y-16">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-black/10">
+            <div class="space-y-3 max-w-2xl">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-dark text-lime font-mono font-bold text-[11px] uppercase tracking-widest">
+                    <span>EDITORIAL // FASHION INTELLIGENCE</span>
+                </div>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight text-dark leading-tight">
+                    THE 2026 RUNWAY &<br>
+                    <span class="text-hyperblue">STREETWEAR RADAR.</span>
+                </h2>
+                <p class="text-dark/70 text-sm sm:text-base leading-relaxed font-sans">
+                    Our AI models continuously monitor fashion weeks, subculture aesthetics, and secondary market velocity. Discover the defining silhouette trajectories shaping global footwear culture.
+                </p>
+            </div>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <span class="px-3 py-1.5 rounded-xl bg-black/5 text-dark font-bold">4 Macro Trends Active</span>
+                <span class="px-3 py-1.5 rounded-xl bg-lime text-dark font-black">2026 S/S Ready</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Trend 01 -->
+            <div class="bg-white rounded-3xl p-6 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold text-lime bg-dark px-2 py-0.5 rounded">Hype: 98/100</span>
+                        <span class="text-xs font-mono text-dark/40">TREND // 01</span>
+                    </div>
+                    <div class="w-full aspect-[4/3] rounded-2xl bg-black border border-black/10 overflow-hidden relative group-hover:border-lime transition shadow-sm">
+                        <img src="/static/images/products/trend_gorpcore_trail.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Gorpcore Trail">
+                        <span class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-lime font-mono text-[9px] uppercase border border-lime/30 font-bold">Vibram Sole</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-mono text-black/40 uppercase font-bold">OUTDOOR UTILITY</span>
+                        <h3 class="font-grotesk font-black text-lg text-dark uppercase group-hover:text-hyperblue transition">Gorpcore & Trail Tech</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Rugged technical trail silhouettes, quicklace toggles, waterproof Gore-Tex membranes, and aggressive lugged geometries transitioning seamlessly into metropolitan streetwear.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-black/5 text-[11px] font-mono">
+                    <span class="text-dark/40 uppercase block text-[9px] mb-0.5">Style Formula:</span>
+                    <span class="text-dark font-bold">Relaxed Parachute Pants + Shell Jacket</span>
+                </div>
+            </div>
+
+            <!-- Trend 02 -->
+            <div class="bg-white rounded-3xl p-6 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold text-hyperblue bg-hyperblue/10 px-2 py-0.5 rounded">Hype: 95/100</span>
+                        <span class="text-xs font-mono text-dark/40">TREND // 02</span>
+                    </div>
+                    <div class="w-full aspect-[4/3] rounded-2xl bg-black border border-black/10 overflow-hidden relative group-hover:border-hyperblue transition shadow-sm">
+                        <img src="/static/images/products/trend_cyber_runner.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cyber Runners">
+                        <span class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-hyperblue font-mono text-[9px] uppercase border border-hyperblue/30 font-bold">Chrome Mesh</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-mono text-black/40 uppercase font-bold">Y2K TECHNO</span>
+                        <h3 class="font-grotesk font-black text-lg text-dark uppercase group-hover:text-hyperblue transition">Cyber Runners & Metallic</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Early-2000s marathon runners with exaggerated silver metallic synthetic overlays, open honeycomb mesh, segmented gel pods, and reflective 3M accents.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-black/5 text-[11px] font-mono">
+                    <span class="text-dark/40 uppercase block text-[9px] mb-0.5">Style Formula:</span>
+                    <span class="text-dark font-bold">Wide-Leg Raw Denim + Vintage Graphic Tee</span>
+                </div>
+            </div>
+
+            <!-- Trend 03 -->
+            <div class="bg-white rounded-3xl p-6 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">Hype: 92/100</span>
+                        <span class="text-xs font-mono text-dark/40">TREND // 03</span>
+                    </div>
+                    <div class="w-full aspect-[4/3] rounded-2xl bg-black border border-black/10 overflow-hidden relative group-hover:border-dark transition shadow-sm">
+                        <img src="/static/images/products/trend_lugged_loafer.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Lugged Loafers">
+                        <span class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-white font-mono text-[9px] uppercase border border-white/20 font-bold">Calfskin</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-mono text-black/40 uppercase font-bold">QUIET LUXURY</span>
+                        <h3 class="font-grotesk font-black text-lg text-dark uppercase group-hover:text-hyperblue transition">Chunky Lugged Loafers</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            The definitive post-sneaker renaissance: polished box calf leather penny loafers elevated with oversized commando soles, moc-toe contrast stitching, and brushed metal hardware.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-black/5 text-[11px] font-mono">
+                    <span class="text-dark/40 uppercase block text-[9px] mb-0.5">Style Formula:</span>
+                    <span class="text-dark font-bold">Pleated Trousers + Boxy Tailored Blazer</span>
+                </div>
+            </div>
+
+            <!-- Trend 04 -->
+            <div class="bg-white rounded-3xl p-6 border border-black/8 hover:border-dark hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-5 group">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[10px] uppercase font-bold text-coral bg-coral/10 px-2 py-0.5 rounded">Hype: 89/100</span>
+                        <span class="text-xs font-mono text-dark/40">TREND // 04</span>
+                    </div>
+                    <div class="w-full aspect-[4/3] rounded-2xl bg-black border border-black/10 overflow-hidden relative group-hover:border-coral transition shadow-sm">
+                        <img src="/static/images/products/trend_bio_clog.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Bio Clogs">
+                        <span class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-coral font-mono text-[9px] uppercase border border-coral/30 font-bold">Molded EVA</span>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-mono text-black/40 uppercase font-bold">BIO-FUTURISM</span>
+                        <h3 class="font-grotesk font-black text-lg text-dark uppercase group-hover:text-hyperblue transition">Sculpted Foam Mules</h3>
+                        <p class="text-xs text-dark/60 leading-relaxed font-sans">
+                            Single-piece injection molded EVA recovery clogs featuring organic ripple ridges, exaggerated ventilation ports, and interchangeable heel straps.
+                        </p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-black/5 text-[11px] font-mono">
+                    <span class="text-dark/40 uppercase block text-[9px] mb-0.5">Style Formula:</span>
+                    <span class="text-dark font-bold">Heavyweight French Terry Sweatpants + Socks</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION: COMMUNITY SCANS & VERIFIED SNEAKER VAULT ==================== -->
+    <section class="bg-dark text-white py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
+                <div class="space-y-2 max-w-xl">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-lime font-mono text-xs uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-lime animate-ping"></span>
+                        <span>LIVE GLOBAL TICKER</span>
+                    </div>
+                    <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight text-white">
+                        COMMUNITY SCANS VAULT.
+                    </h2>
+                    <p class="text-white/60 text-xs sm:text-sm font-sans leading-relaxed">
+                        Footwear analyzed and verified by community members across worldwide fashion hubs in real time.
+                    </p>
+                </div>
+                <div class="flex items-center space-x-3 text-xs font-mono">
+                    <span class="px-3 py-1.5 rounded-xl bg-white/5 text-lime font-bold border border-white/10">● 42,910 Scans Today</span>
+                    <span class="px-3 py-1.5 rounded-xl bg-white/5 text-white/70 font-bold border border-white/10">0.08s Avg Speed</span>
+                </div>
+            </div>
+
+            <!-- Live Stream Ticker Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-5 space-y-3 hover:border-lime/60 transition">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="text-lime font-bold">TOKYO // SHIBUYA</span>
+                        <span class="text-white/40 text-[10px]">Just now</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0">
+                            <img src="/static/images/products/nike_street_pro.jpg" class="w-full h-full object-cover" alt="Jordan 1">
+                        </div>
+                        <div>
+                            <h4 class="font-grotesk font-black text-sm text-white uppercase">Nike Air Jordan 1 Retro OG</h4>
+                            <span class="text-[11px] text-white/60 font-mono">Category: High-Top Sneaker</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-white/40">Confidence:</span>
+                        <span class="text-emerald-400 font-bold">99.4% Verified</span>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-5 space-y-3 hover:border-hyperblue/60 transition">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="text-hyperblue font-bold">NEW YORK // SOHO</span>
+                        <span class="text-white/40 text-[10px]">2 mins ago</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0">
+                            <img src="/static/images/products/hero_form_03.jpg" class="w-full h-full object-cover" alt="New Balance">
+                        </div>
+                        <div>
+                            <h4 class="font-grotesk font-black text-sm text-white uppercase">New Balance 990v6 Castlerock</h4>
+                            <span class="text-[11px] text-white/60 font-mono">Category: Heritage Running</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-white/40">Confidence:</span>
+                        <span class="text-emerald-400 font-bold">99.1% Verified</span>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-5 space-y-3 hover:border-coral/60 transition">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="text-coral font-bold">LONDON // SHOREDITCH</span>
+                        <span class="text-white/40 text-[10px]">4 mins ago</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0">
+                            <img src="/static/images/products/trend_gorpcore_trail.jpg" class="w-full h-full object-cover" alt="Salomon">
+                        </div>
+                        <div>
+                            <h4 class="font-grotesk font-black text-sm text-white uppercase">Salomon XT-6 Black Phantom</h4>
+                            <span class="text-[11px] text-white/60 font-mono">Category: Technical Trail</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-white/40">Confidence:</span>
+                        <span class="text-emerald-400 font-bold">98.8% Verified</span>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-5 space-y-3 hover:border-lime/60 transition">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="text-lime font-bold">MUMBAI // BANDRA</span>
+                        <span class="text-white/40 text-[10px]">7 mins ago</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0">
+                            <img src="/static/images/products/hero_urban_02.jpg" class="w-full h-full object-cover" alt="Woodland">
+                        </div>
+                        <div>
+                            <h4 class="font-grotesk font-black text-sm text-white uppercase">Woodland Camel Nubuck Hiker</h4>
+                            <span class="text-[11px] text-white/60 font-mono">Category: Leather Trek Boot</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-white/40">Confidence:</span>
+                        <span class="text-emerald-400 font-bold">98.5% Verified</span>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-5 space-y-3 hover:border-hyperblue/60 transition">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="text-hyperblue font-bold">PARIS // MARAIS</span>
+                        <span class="text-white/40 text-[10px]">11 mins ago</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0">
+                            <img src="/static/images/products/trend_lugged_loafer.jpg" class="w-full h-full object-cover" alt="Prada">
+                        </div>
+                        <div>
+                            <h4 class="font-grotesk font-black text-sm text-white uppercase">Prada Monolith Brushed Loafers</h4>
+                            <span class="text-[11px] text-white/60 font-mono">Category: Lugged Dress Loafer</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-white/40">Confidence:</span>
+                        <span class="text-emerald-400 font-bold">97.9% Verified</span>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card border border-white/10 rounded-2xl p-5 space-y-3 hover:border-emerald-400/60 transition">
+                    <div class="flex items-center justify-between text-xs font-mono">
+                        <span class="text-emerald-400 font-bold">BERLIN // MITTE</span>
+                        <span class="text-white/40 text-[10px]">14 mins ago</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0">
+                            <img src="/static/images/products/adidas_court_flow.jpg" class="w-full h-full object-cover" alt="Samba">
+                        </div>
+                        <div>
+                            <h4 class="font-grotesk font-black text-sm text-white uppercase">Adidas Samba OG Classic White</h4>
+                            <span class="text-[11px] text-white/60 font-mono">Category: Terrace Court Sneaker</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-white/40">Confidence:</span>
+                        <span class="text-emerald-400 font-bold">99.7% Verified</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION: INTERACTIVE FOOTWEAR LONGEVITY PREDICTOR ==================== -->
+    <section id="longevity-tool-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full space-y-16">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-5">
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-dark text-lime font-mono font-bold text-[11px] uppercase tracking-widest">
+                    <span>INTERACTIVE TOOL // AI DIAGNOSTICS</span>
+                </div>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tight text-dark leading-tight">
+                    SHOE LIFESPAN &<br>
+                    <span class="text-hyperblue">WEAR PREDICTOR.</span>
+                </h2>
+                <p class="text-dark/70 text-sm sm:text-base leading-relaxed font-sans">
+                    Footwear midsoles degrade progressively under repeated impact. Calculate the remaining effective cushioning in your rotation and prevent joint injury from dead foam.
+                </p>
+                <div class="p-4 rounded-2xl bg-white border border-black/10 space-y-2 text-xs">
+                    <span class="font-mono text-[10px] uppercase font-bold text-dark/40 block">BIOMECHANICAL RULE OF THUMB:</span>
+                    <p class="text-dark/80 leading-relaxed font-sans">
+                        Standard supercritical & EVA foams lose 30-40% of their shock attenuation capacity between 500km and 750km, regardless of how clean the upper looks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Interactive Calculator Control Panel -->
+            <div class="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-black/10 shadow-xl space-y-8">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    
+                    <!-- Control 1: Footwear Type -->
+                    <div class="space-y-2">
+                        <label class="block font-mono text-[11px] uppercase font-bold text-dark/60 tracking-wider">
+                            Select Footwear Build:
+                        </label>
+                        <select id="calc-activity" onchange="updateLongevityCalc()" class="w-full bg-black/[0.03] text-dark font-grotesk font-bold text-sm rounded-2xl px-4 py-3 border border-black/10 focus:outline-none focus:ring-2 focus:ring-lime">
+                            <option value="trainer">Everyday Running Trainer (EVA / TPU)</option>
+                            <option value="supershoe">Marathon Super Shoe (PEBAX / Carbon)</option>
+                            <option value="trail">Rugged Trail / Mountain Hiker (Vibram)</option>
+                            <option value="leather">Goodyear-Welted Dress Leather</option>
+                            <option value="casual">Canvas / Cupsole Casual Sneaker</option>
+                        </select>
+                    </div>
+
+                    <!-- Control 2: Weekly Usage Slider -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <label class="font-mono text-[11px] uppercase font-bold text-dark/60 tracking-wider">
+                                Weekly Mileage:
+                            </label>
+                            <span id="calc-km-val" class="font-mono font-bold text-dark text-xs bg-black/5 px-2 py-0.5 rounded">25 km/wk</span>
+                        </div>
+                        <input type="range" id="calc-km-slider" min="5" max="80" value="25" step="5" oninput="updateLongevityCalc()" class="w-full h-2 bg-black/10 rounded-lg appearance-none cursor-pointer accent-lime">
+                        <div class="flex justify-between text-[10px] font-mono text-dark/40">
+                            <span>5 km (Light)</span>
+                            <span>40 km (Active)</span>
+                            <span>80 km (Heavy)</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Live Results Telemetry Grid -->
+                <div class="pt-6 border-t border-black/10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    
+                    <div class="p-4 rounded-2xl bg-black/[0.025] border border-black/5 space-y-1">
+                        <span class="text-[10px] font-mono uppercase font-bold text-dark/40 block">Estimated Lifespan:</span>
+                        <div id="calc-res-months" class="font-grotesk font-black text-2xl text-dark">7.0 Mo</div>
+                        <span class="text-[11px] text-dark/60 font-sans">Under regular rotation</span>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-black/[0.025] border border-black/5 space-y-1">
+                        <span class="text-[10px] font-mono uppercase font-bold text-dark/40 block">Cushioning Health:</span>
+                        <div id="calc-res-health" class="font-grotesk font-black text-2xl text-emerald-600">80%</div>
+                        <div class="w-full bg-black/10 h-1.5 rounded-full overflow-hidden mt-1">
+                            <div id="calc-res-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-black/[0.025] border border-black/5 space-y-1">
+                        <span class="text-[10px] font-mono uppercase font-bold text-dark/40 block">Retire / Resole Target:</span>
+                        <div id="calc-res-date" class="font-grotesk font-black text-2xl text-hyperblue">May 2027</div>
+                        <span class="text-[11px] text-dark/60 font-sans">Projected threshold</span>
+                    </div>
+
+                </div>
+
+                <div class="p-4 rounded-2xl bg-lime/20 border border-lime/40 text-xs font-sans text-dark flex items-start space-x-3">
+                    <svg class="w-5 h-5 text-dark flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p id="calc-res-tip" class="leading-relaxed font-medium">
+                        Daily dual-density midsoles provide consistent cushioning. Rotate with a second pair to allow foam cells 24 hours to rebound.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION: FREQUENTLY ASKED QUESTIONS (FAQ) ==================== -->
+    <section id="faq-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-5xl mx-auto w-full space-y-12">
+        
+        <div class="text-center space-y-3 max-w-xl mx-auto">
+            <span class="inline-block px-3.5 py-1.5 rounded-full bg-dark text-lime font-mono font-bold text-xs uppercase tracking-widest shadow-sm">
+                Knowledge Base // FAQ
+            </span>
+            <h2 class="font-grotesk font-black text-4xl sm:text-5xl uppercase tracking-tight text-dark">
+                QUESTIONS ANSWERED.
+            </h2>
+            <p class="text-dark/60 text-xs sm:text-sm font-sans">
+                Everything you need to know about our neural footwear classification engine.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            
+            <div class="bg-white rounded-2xl border border-black/8 overflow-hidden shadow-xs">
+                <button onclick="toggleFaqAccordion(this)" class="w-full p-6 text-left flex items-center justify-between focus:outline-none">
+                    <span class="font-grotesk font-black text-base text-dark uppercase">How does FootwearAI identify shoes with just one photo?</span>
+                    <svg class="w-5 h-5 text-dark/40 faq-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6 text-xs text-dark/70 font-sans leading-relaxed border-t border-black/5 pt-3">
+                    Our model passes your photo through an inverted residual convolutional neural network (MobileNetV2) trained on diverse footwear datasets. It analyzes silhouette contours, outsole tread patterns, eyelet geometry, and collar profiles, projecting them into a 1,280-dimensional latent embedding vector to compute matching probabilities in under 70 milliseconds.
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-black/8 overflow-hidden shadow-xs">
+                <button onclick="toggleFaqAccordion(this)" class="w-full p-6 text-left flex items-center justify-between focus:outline-none">
+                    <span class="font-grotesk font-black text-base text-dark uppercase">What is the difference between category classification and exact match?</span>
+                    <svg class="w-5 h-5 text-dark/40 faq-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6 text-xs text-dark/70 font-sans leading-relaxed border-t border-black/5 pt-3">
+                    Category classification determines the functional design type (e.g., Chelsea Boot, High-Top Sneaker, Penny Loafer). The <strong>Exact Match</strong> engine performs high-dimensional cosine similarity against our verified product database to pinpoint the specific brand model (e.g. Nike Air Force 1 '07 Low, Timberland 6" Premium Boot) and retrieves 1-click shopping links.
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-black/8 overflow-hidden shadow-xs">
+                <button onclick="toggleFaqAccordion(this)" class="w-full p-6 text-left flex items-center justify-between focus:outline-none">
+                    <span class="font-grotesk font-black text-base text-dark uppercase">Which shopping portals and retail stores are supported?</span>
+                    <svg class="w-5 h-5 text-dark/40 faq-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6 text-xs text-dark/70 font-sans leading-relaxed border-t border-black/5 pt-3">
+                    We currently map directly to Amazon India, Myntra, Flipkart, AJIO, and Tata CLiQ, alongside an integrated Google Lens reverse image lookup for rare, vintage, or global sneaker drops.
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-black/8 overflow-hidden shadow-xs">
+                <button onclick="toggleFaqAccordion(this)" class="w-full p-6 text-left flex items-center justify-between focus:outline-none">
+                    <span class="font-grotesk font-black text-base text-dark uppercase">Can I scan shoes in low light or while wearing them?</span>
+                    <svg class="w-5 h-5 text-dark/40 faq-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6 text-xs text-dark/70 font-sans leading-relaxed border-t border-black/5 pt-3">
+                    Yes. Our image pipeline features adaptive contrast normalization and edge gradient thresholding that handles angled on-foot photos and ambient indoor lighting. For optimal accuracy, capture a 3/4 side-profile view showing the midsole and lacing.
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-black/8 overflow-hidden shadow-xs">
+                <button onclick="toggleFaqAccordion(this)" class="w-full p-6 text-left flex items-center justify-between focus:outline-none">
+                    <span class="font-grotesk font-black text-base text-dark uppercase">Are my uploaded shoe photos saved or kept private?</span>
+                    <svg class="w-5 h-5 text-dark/40 faq-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-6 text-xs text-dark/70 font-sans leading-relaxed border-t border-black/5 pt-3">
+                    Your photos are processed transiently in memory for tensor inference and immediately discarded. Recent scan cards are stored exclusively in your browser's private local storage (<code class="font-mono bg-black/5 px-1 rounded">localStorage</code>) and are never sent to external servers.
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 8: MULTI-STORE SHOPPING ==================== -->
+    <section id="shopping-section" class="py-24 sm:py-32 px-4 sm:px-8 max-w-7xl mx-auto w-full text-center space-y-8">
+        
+        <div class="space-y-2 max-w-xl mx-auto">
+            <span class="inline-block px-3 py-1 rounded-full bg-dark text-lime font-grotesk font-black text-xs uppercase tracking-widest">
+                Multi-Store Directory
+            </span>
+            <h2 class="font-grotesk font-black text-4xl sm:text-5xl uppercase tracking-tight">
+                FOUND YOUR PAIR?
+            </h2>
+            <p class="text-dark/60 text-xs sm:text-sm">
+                Shop with confidence across India's premier verified footwear marketplaces:
+            </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
+            <a href="https://www.amazon.in/s?k=footwear" target="_blank" class="px-6 py-3 rounded-full bg-white border border-black/10 hover:border-dark font-grotesk font-black text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition">
+                Amazon India &rarr;
+            </a>
+            <a href="https://www.myntra.com/footwear" target="_blank" class="px-6 py-3 rounded-full bg-white border border-black/10 hover:border-pink-500 hover:text-pink-600 font-grotesk font-black text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition">
+                Myntra &rarr;
+            </a>
+            <a href="https://www.ajio.com/s/footwear" target="_blank" class="px-6 py-3 rounded-full bg-white border border-black/10 hover:border-dark font-grotesk font-black text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition">
+                AJIO &rarr;
+            </a>
+            <a href="https://www.flipkart.com/footwear" target="_blank" class="px-6 py-3 rounded-full bg-white border border-black/10 hover:border-blue-500 hover:text-blue-600 font-grotesk font-black text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition">
+                Flipkart &rarr;
+            </a>
+            <a href="https://www.tatacliq.com/" target="_blank" class="px-6 py-3 rounded-full bg-white border border-black/10 hover:border-purple-500 hover:text-purple-600 font-grotesk font-black text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition">
+                Tata CLiQ &rarr;
+            </a>
+        </div>
+
+    </section>
+
+    <!-- ==================== SECTION 9: FINAL HIGH-VOLTAGE CTA ==================== -->
+    <section class="px-4 sm:px-8 pb-20">
+        <div class="max-w-7xl mx-auto bg-lime rounded-3xl sm:rounded-[40px] p-10 sm:p-20 text-dark relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            
+            <!-- Graphic background lines -->
+            <div class="absolute inset-0 pointer-events-none opacity-10">
+                <div class="w-full h-full" style="background-image: repeating-linear-gradient(45deg, #111111 0, #111111 1px, transparent 0, transparent 50%); background-size: 20px 20px;"></div>
+            </div>
+
+            <div class="space-y-3 relative z-10 max-w-xl text-center md:text-left">
+                <span class="inline-block px-3 py-1 rounded-full bg-dark text-lime font-mono text-xs uppercase tracking-widest font-bold">
+                    Start Exploration
+                </span>
+                <h2 class="font-grotesk font-black text-4xl sm:text-6xl uppercase tracking-tighter leading-none">
+                    YOUR NEXT PAIR<br>
+                    IS ONE SCAN AWAY.
+                </h2>
+                <p class="text-dark/80 text-sm font-medium">
+                    Let artificial intelligence decode the style, build, and best deals for your favorite shoes.
+                </p>
+            </div>
+
+            <div class="relative z-10 flex flex-col sm:flex-row gap-3">
+                <a href="#scanner-section" class="px-8 py-5 rounded-full bg-dark hover:bg-black text-lime font-grotesk font-black text-sm uppercase tracking-wider shadow-xl transition transform hover:scale-105 text-center">
+                    SCAN A SHOE NOW &rarr;
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // ==================== 1. Interactive Hero Sneaker Tilt & Parallax ====================
+    document.addEventListener('DOMContentLoaded', () => {
+        const heroStage = document.getElementById('hero-shoe-stage');
+        const heroImg = document.getElementById('hero-img-wrap');
+        if (heroStage && heroImg) {
+            heroStage.addEventListener('mousemove', (e) => {
+                const rect = heroStage.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                heroImg.style.transform = `translate(${x * 26}px, ${y * 26}px) rotate(${-6 + x * 10}deg)`;
+            });
+            heroStage.addEventListener('mouseleave', () => {
+                heroImg.style.transform = `translate(0px, 0px) rotate(-6deg)`;
+            });
+        }
+    });
+
+    // ==================== 2. Shoe X-Ray Anatomy Popups ====================
+    const anatomyData = {
+        'upper': {
+            num: 'HOTSPOT // 01',
+            title: 'ENGINEERED MESH UPPER',
+            desc: 'Multi-density engineered jacquard mesh reinforced with hot-melt TPU overlays providing breathability and targeted dynamic lockdown.',
+            metric: '● TENSILE STRENGTH: 450 N // AIR PERMEABILITY: 180 cm³/cm²/s'
+        },
+        'laces': {
+            num: 'HOTSPOT // 02',
+            title: 'ANATOMICAL SPEED LACES',
+            desc: 'Interlocking ghillie lace loops connected directly to the internal footbed harness to distribute instep pressure evenly across the foot.',
+            metric: '● PRESSURE DISTRIBUTION: 84% REDUCTION // NYLON WEAVE'
+        },
+        'midsole': {
+            num: 'HOTSPOT // 03',
+            title: 'SUPERCRITICAL DUAL-FOAM',
+            desc: 'Nitrogen-infused foam cushioning compound providing instant spring and 82% mechanical energy return with each stride.',
+            metric: '● ENERGY RETURN: 82% // COMPRESSION SET: <12%'
+        },
+        'heel': {
+            num: 'HOTSPOT // 04',
+            title: 'MOLDED HEEL COUNTER',
+            desc: 'Pre-molded thermoplastic anatomical heel cup stabilizing the calcaneus bone, preventing heel slippage and Achilles tendon fatigue.',
+            metric: '● ACHILLES CRADLE: TPU // LATERAL TORQUE RESISTANCE'
+        },
+        'outsole': {
+            num: 'HOTSPOT // 05',
+            title: 'ZONAL TREAD OUTSOLE',
+            desc: 'High-abrasion solid carbon rubber outsole with micro-siped flex grooves engineered for optimal grip across wet asphalt and indoor courts.',
+            metric: '● SHORE HARDNESS: 68A // WET TRACTION COEFFICIENT: 0.94'
+        }
+    };
+
+    function setAnatomy(part) {
+        const data = anatomyData[part] || anatomyData['midsole'];
+        document.getElementById('anatomy-num').innerText = data.num;
+        document.getElementById('anatomy-title').innerText = data.title;
+        document.getElementById('anatomy-desc').innerText = data.desc;
+        document.getElementById('anatomy-metric').innerHTML = `<span>${data.metric}</span>`;
+    }
+
+    // ==================== 3. AI Scanner & Camera Logic ====================
+    let currentImageBlob = null;
+    let webcamStream = null;
+
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const previewSection = document.getElementById('preview-section');
+    const previewImg = document.getElementById('preview-img');
+    const scanLaserLine = document.getElementById('scan-laser-line');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const loadingState = document.getElementById('loading-state');
+    const errorAlert = document.getElementById('error-alert');
+    const emptyState = document.getElementById('empty-state');
+    const resultsContainer = document.getElementById('results-container');
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadScanHistory();
+        const pendingId = localStorage.getItem('pending_reopen_scan_id');
+        if (pendingId) {
+            localStorage.removeItem('pending_reopen_scan_id');
+            setTimeout(() => reopenScanById(pendingId), 200);
+        }
+    });
+
+    function switchTab(tab) {
+        document.getElementById('view-upload').classList.add('hidden');
+        document.getElementById('view-camera').classList.add('hidden');
+        document.getElementById('view-sample').classList.add('hidden');
+
+        document.getElementById('tab-upload-btn').className = "flex-1 py-2.5 rounded-xl text-dark/60 hover:text-dark transition";
+        document.getElementById('tab-camera-btn').className = "flex-1 py-2.5 rounded-xl text-dark/60 hover:text-dark transition";
+        document.getElementById('tab-sample-btn').className = "flex-1 py-2.5 rounded-xl text-dark/60 hover:text-dark transition";
+
+        if (tab === 'upload') {
+            document.getElementById('view-upload').classList.remove('hidden');
+            document.getElementById('tab-upload-btn').className = "flex-1 py-2.5 rounded-xl bg-dark text-lime font-black shadow-xs transition";
+            stopCamera();
+        } else if (tab === 'camera') {
+            document.getElementById('view-camera').classList.remove('hidden');
+            document.getElementById('tab-camera-btn').className = "flex-1 py-2.5 rounded-xl bg-dark text-lime font-black shadow-xs transition";
+        } else if (tab === 'sample') {
+            document.getElementById('view-sample').classList.remove('hidden');
+            document.getElementById('tab-sample-btn').className = "flex-1 py-2.5 rounded-xl bg-dark text-lime font-black shadow-xs transition";
+            stopCamera();
+        }
+    }
+
+    // Drag & Drop
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+            handleFileSelect(e.target.files[0]);
+        }
+    });
+
+    ['dragenter', 'dragover'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+            e.preventDefault();
+            dropZone.classList.add('border-dark', 'bg-lime/10');
+        });
+    });
+
+    ['dragleave', 'drop'].forEach(name => {
+        dropZone.addEventListener(name, (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-dark', 'bg-lime/10');
+        });
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleFileSelect(e.dataTransfer.files[0]);
+        }
+    });
+
+    function handleFileSelect(file) {
+        currentImageBlob = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            previewSection.classList.remove('hidden');
+            hideError();
+        };
+        reader.readAsDataURL(file);
+    }
+
+    async function selectSample(filename) {
+        try {
+            const res = await fetch('/samples/' + filename);
+            const blob = await res.blob();
+            currentImageBlob = new File([blob], filename, { type: blob.type });
+            previewImg.src = URL.createObjectURL(blob);
+            previewSection.classList.remove('hidden');
+            hideError();
+        } catch (err) {
+            showError("Could not load sample: " + err.message);
+        }
+    }
+
+    // Camera Handlers
+    async function startCamera() {
+        try {
+            webcamStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+            const video = document.getElementById('webcam-video');
+            video.srcObject = webcamStream;
+            document.getElementById('camera-placeholder').classList.add('hidden');
+            document.getElementById('camera-capture-btn').disabled = false;
+            document.getElementById('camera-start-btn').innerText = "Camera Active";
+            document.getElementById('camera-start-btn').disabled = true;
+        } catch (err) {
+            showError("Camera access denied or unavailable: " + err.message);
+        }
+    }
+
+    function stopCamera() {
+        if (webcamStream) {
+            webcamStream.getTracks().forEach(track => track.stop());
+            webcamStream = null;
+            const video = document.getElementById('webcam-video');
+            video.srcObject = null;
+            document.getElementById('camera-placeholder').classList.remove('hidden');
+            document.getElementById('camera-capture-btn').disabled = true;
+            document.getElementById('camera-start-btn').innerText = "Start Camera";
+            document.getElementById('camera-start-btn').disabled = false;
+        }
+    }
+
+    function capturePhoto() {
+        const video = document.getElementById('webcam-video');
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth || 640;
+        canvas.height = video.videoHeight || 480;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        canvas.toBlob((blob) => {
+            currentImageBlob = new File([blob], "camera_snapshot.jpg", { type: "image/jpeg" });
+            previewImg.src = canvas.toDataURL("image/jpeg");
+            previewSection.classList.remove('hidden');
+            hideError();
+            stopCamera();
+        }, 'image/jpeg', 0.9);
+    }
+
+    function clearSelectedImage() {
+        currentImageBlob = null;
+        previewImg.src = "";
+        previewSection.classList.add('hidden');
+        fileInput.value = "";
+        scanLaserLine.classList.add('hidden');
+        hideError();
+    }
+
+    function showError(msg) {
+        errorAlert.innerText = msg;
+        errorAlert.classList.remove('hidden');
+    }
+
+    function hideError() {
+        errorAlert.classList.add('hidden');
+    }
+
+    // Prediction Call
+    async function analyzeImage() {
+        if (!currentImageBlob) {
+            showError("Please choose or capture an image first.");
+            return;
+        }
+
+        hideError();
+        analyzeBtn.disabled = true;
+        scanLaserLine.classList.remove('hidden');
+        loadingState.classList.remove('hidden');
+
+        const formData = new FormData();
+        formData.append('image', currentImageBlob);
+
+        try {
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || data.error) {
+                throw new Error(data.error || "Analysis failed.");
+            }
+
+            renderResults(data);
+            saveToScanHistory(data, previewImg.src);
+        } catch (err) {
+            showError("Prediction Error: " + err.message);
+        } finally {
+            analyzeBtn.disabled = false;
+            scanLaserLine.classList.add('hidden');
+            loadingState.classList.add('hidden');
+        }
+    }
+
+    // Direct Category Lookup (Without image upload)
+    async function lookupSelectedCategory(categoryKey) {
+        if (!categoryKey) return;
+        try {
+            const res = await fetch('/api/category/' + categoryKey);
+            const data = await res.json();
+            if (data.error) throw new Error(data.error);
+
+            emptyState.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            const resIcon = document.getElementById('res-icon');
+            if (resIcon) resIcon.src = '/static/images/icons/' + (data.icon || data.group || 'sneakers') + '.svg';
+            document.getElementById('res-class').innerText = data.name;
+            document.getElementById('res-tagline').innerText = data.tagline;
+            document.getElementById('res-confidence').innerText = "Direct Match";
+
+            const badge = document.getElementById('res-badge');
+            badge.className = "inline-block mt-1 px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase bg-lime/20 text-lime border border-lime/30";
+            badge.innerText = data.group.toUpperCase() + " DEPARTMENT";
+
+            document.getElementById('res-style').innerText = data.style_tips || 'N/A';
+            document.getElementById('res-occasion').innerText = data.occasion || 'N/A';
+            document.getElementById('res-care').innerText = data.care_guide || 'N/A';
+            document.getElementById('res-price').innerText = data.price_range || 'N/A';
+            document.getElementById('res-stores').innerText = "Top Brands: " + (data.stores ? data.stores.join(', ') : 'N/A');
+
+            // Shopping Buttons
+            const shopContainer = document.getElementById('shopping-buttons');
+            shopContainer.innerHTML = '';
+            for (const [store, url] of Object.entries(data.shopping_links)) {
+                const btn = document.createElement('a');
+                btn.href = url;
+                btn.target = "_blank";
+                btn.className = "text-center py-2 px-3 border border-black/10 rounded-full text-xs font-grotesk font-bold uppercase hover:bg-dark hover:text-white transition";
+                btn.innerText = store;
+                shopContainer.appendChild(btn);
+            }
+
+            document.getElementById('sub-categories-section').classList.add('hidden');
+            document.getElementById('prob-bars').innerHTML = '<div class="text-xs font-mono text-white/40 italic">Direct taxonomy lookup entry.</div>';
+
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        } catch (err) {
+            showError("Lookup failed: " + err.message);
+        }
+    }
+
+    function renderResults(data) {
+        emptyState.classList.add('hidden');
+        resultsContainer.classList.remove('hidden');
+
+        const resIcon = document.getElementById('res-icon');
+        if (resIcon) resIcon.src = '/static/images/icons/' + (data.icon || data.category || 'sneakers') + '.svg';
+        document.getElementById('res-class').innerText = data.category_name;
+        document.getElementById('res-tagline').innerText = data.knowledge.tagline || "";
+        document.getElementById('res-confidence').innerText = data.confidence.toFixed(1) + "%";
+
+        const badge = document.getElementById('res-badge');
+        if (data.confidence >= 70) {
+            badge.className = "inline-block mt-1 px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+            badge.innerText = "High Confidence";
+        } else if (data.confidence >= 40) {
+            badge.className = "inline-block mt-1 px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30";
+            badge.innerText = "Moderate Confidence";
+        } else {
+            badge.className = "inline-block mt-1 px-3 py-1 rounded-full font-mono text-[10px] font-bold uppercase bg-white/20 text-white/70";
+            badge.innerText = "Low Confidence";
+        }
+
+        // Sub-categories list
+        const subSection = document.getElementById('sub-categories-section');
+        const subList = document.getElementById('sub-categories-list');
+        if (data.sub_categories && data.sub_categories.length > 0) {
+            subSection.classList.remove('hidden');
+            subList.innerHTML = '';
+            data.sub_categories.forEach(sub => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = "px-3 py-1.5 rounded-full bg-white/10 hover:bg-lime hover:text-dark text-white font-grotesk font-bold text-xs uppercase tracking-wide transition flex items-center space-x-1.5";
+                btn.innerHTML = `<img src="/static/images/icons/${sub.icon || sub.group || 'sneakers'}.svg" class="w-3.5 h-3.5 object-contain inline-block" alt="${sub.name}"> <span>${sub.name}</span>`;
+                btn.onclick = () => lookupSelectedCategory(sub.key);
+                subList.appendChild(btn);
+            });
+        } else {
+            subSection.classList.add('hidden');
+        }
+
+        // Probability bars
+        const probBars = document.getElementById('prob-bars');
+        probBars.innerHTML = '';
+        data.probabilities.forEach(item => {
+            const row = document.createElement('div');
+            row.className = "space-y-1";
+            row.innerHTML = `
+                <div class="flex justify-between text-xs font-mono text-white/70">
+                    <span class="flex items-center space-x-1.5">
+                        <img src="/static/images/icons/${item.icon || item.category || 'sneakers'}.svg" class="w-4 h-4 object-contain inline-block" alt="${item.name}">
+                        <span>${item.name}</span>
+                    </span>
+                    <span class="font-bold text-lime">${item.percentage.toFixed(1)}%</span>
+                </div>
+                <div class="w-full bg-white/10 rounded-full h-1.5 overflow-hidden">
+                    <div class="bg-lime h-1.5 rounded-full progress-bar-fill" style="width: ${item.percentage}%"></div>
+                </div>
+            `;
+            probBars.appendChild(row);
+        });
+
+        // Knowledge Base
+        document.getElementById('res-style').innerText = data.knowledge.style_tips || 'N/A';
+        document.getElementById('res-occasion').innerText = data.knowledge.occasion || 'N/A';
+        document.getElementById('res-care').innerText = data.knowledge.care_guide || 'N/A';
+        document.getElementById('res-price').innerText = data.knowledge.price_range || 'N/A';
+        document.getElementById('res-stores').innerText = "Top Brands: " + (data.knowledge.stores ? data.knowledge.stores.join(', ') : 'N/A');
+
+        // Deep Visual Feature Exact Match Integration
+        currentDetectedCategory = data.category || 'sneakers';
+        renderExactMatches(data.exact_matches);
+
+        // Shopping Buttons
+        const shopContainer = document.getElementById('shopping-buttons');
+        shopContainer.innerHTML = '';
+        for (const [store, url] of Object.entries(data.shopping_links)) {
+            const btn = document.createElement('a');
+            btn.href = url;
+            btn.target = "_blank";
+            btn.className = "text-center py-2 px-3 border border-black/10 rounded-full text-xs font-grotesk font-bold uppercase hover:bg-dark hover:text-white transition";
+            btn.innerText = store;
+            shopContainer.appendChild(btn);
+        }
+
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ==================== 4. Deep Visual Feature Exact Match Logic ====================
+    let currentDetectedCategory = 'sneakers';
+
+    function renderExactMatches(exactData) {
+        if (!exactData) return;
+
+        // 1. Top Visual Match Banner
+        const topName = document.getElementById('top-match-name');
+        const topSim = document.getElementById('top-match-similarity');
+        const topPrice = document.getElementById('top-match-price');
+        const topSpecs = document.getElementById('top-match-specs');
+
+        if (topName) topName.innerText = exactData.top_match_model || "Identified Footwear Pair";
+        if (topSim) topSim.innerText = `${exactData.top_match_similarity}% Visual Feature Match`;
+
+        const topItem = (exactData.matches && exactData.matches.length > 0) ? exactData.matches[0] : null;
+        if (topItem) {
+            if (topPrice) topPrice.innerText = topItem.price || "";
+            if (topSpecs) topSpecs.innerText = `${topItem.silhouette}: ${topItem.specs}`;
+        }
+
+        // 2. Google Lens Web-Wide Search button
+        const lensBtn = document.getElementById('lens-search-btn');
+        if (lensBtn && topItem && topItem.portal_links && topItem.portal_links['Google Lens']) {
+            lensBtn.href = topItem.portal_links['Google Lens'];
+        }
+
+        // 3. Multi-Portal Exact Buy Links for Top Match
+        const portalBtns = document.getElementById('exact-portal-buttons');
+        if (portalBtns && topItem && topItem.portal_links) {
+            portalBtns.innerHTML = '';
+            for (const [store, url] of Object.entries(topItem.portal_links)) {
+                if (store === 'Google Lens') continue;
+                const a = document.createElement('a');
+                a.href = url;
+                a.target = '_blank';
+                a.className = "text-center py-2 px-2 bg-white/10 hover:bg-lime hover:text-dark border border-white/15 rounded-xl text-xs font-grotesk font-bold uppercase text-white transition";
+                a.innerText = store;
+                portalBtns.appendChild(a);
+            }
+        }
+
+        // 4. Alternative High-Similarity Footwear Pairs Grid
+        const matchesGrid = document.getElementById('curated-matches-grid');
+        if (matchesGrid && exactData.matches) {
+            matchesGrid.innerHTML = '';
+            const listToShow = exactData.matches.length > 1 ? exactData.matches.slice(1, 4) : exactData.matches;
+            listToShow.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white/5 border border-white/10 rounded-2xl p-4 space-y-2 flex flex-col justify-between hover:border-lime transition";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between text-[10px] font-mono">
+                            <span class="font-extrabold text-lime uppercase">${item.brand}</span>
+                            <span class="text-emerald-400 font-bold">${item.visual_similarity}% Match</span>
+                        </div>
+                        <div class="font-grotesk font-black text-sm text-white uppercase mt-1 leading-snug">${item.model}</div>
+                        <div class="text-[11px] text-white/50 mt-0.5">${item.silhouette}</div>
+                        <div class="font-mono text-xs font-black text-lime mt-1.5">${item.price}</div>
+                    </div>
+                    <div class="pt-2 border-t border-white/10 flex space-x-1.5">
+                        <a href="${item.portal_links['Amazon']}" target="_blank" class="flex-1 text-center py-1.5 bg-white/10 hover:bg-lime hover:text-dark text-white rounded-lg text-[10px] font-bold uppercase transition">
+                            Amazon
+                        </a>
+                        <a href="${item.portal_links['Myntra']}" target="_blank" class="flex-1 text-center py-1.5 bg-white/10 hover:bg-hyperblue hover:text-white text-white rounded-lg text-[10px] font-bold uppercase transition">
+                            Myntra
+                        </a>
+                        <a href="${item.portal_links['Google Shopping']}" target="_blank" class="flex-1 text-center py-1.5 bg-lime text-dark font-black rounded-lg text-[10px] uppercase transition">
+                            Deals &rarr;
+                        </a>
+                    </div>
+                `;
+                matchesGrid.appendChild(card);
+            });
+        }
+    }
+
+    async function triggerExactMatchRefinement() {
+        const brand = document.getElementById('refine-brand').value;
+
+        try {
+            const res = await fetch('/api/exact-match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    category: currentDetectedCategory,
+                    brand: brand
+                })
+            });
+            const exactData = await res.json();
+            renderExactMatches(exactData);
+        } catch (err) {
+            console.error("Visual exact match refinement failed:", err);
+        }
+    }
+
+    // ==================== 5. Local Storage History ====================
+    function saveToScanHistory(data, thumbnail) {
+        let history = JSON.parse(localStorage.getItem('footwear_scans') || '[]');
+        const entry = {
+            id: Date.now().toString(),
+            category: data.category,
+            category_name: data.category_name,
+            icon: data.icon,
+            confidence: data.confidence.toFixed(1),
+            thumbnail: thumbnail || "",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            full_data: data
+        };
+
+        history.unshift(entry);
+        if (history.length > 10) history.pop();
+        localStorage.setItem('footwear_scans', JSON.stringify(history));
+        
+        loadScanHistory();
+        if (typeof updateNavHistoryBadge === 'function') {
+            updateNavHistoryBadge();
+        }
+    }
+
+    function loadScanHistory() {
+        const history = JSON.parse(localStorage.getItem('footwear_scans') || '[]');
+        const box = document.getElementById('history-box');
+        const list = document.getElementById('history-list');
+
+        if (!history || history.length === 0) {
+            box.classList.add('hidden');
+            return;
+        }
+
+        box.classList.remove('hidden');
+        list.innerHTML = '';
+
+        history.slice(0, 4).forEach(item => {
+            const card = document.createElement('div');
+            card.className = "p-2.5 rounded-2xl bg-offwhite border border-black/8 flex items-center justify-between gap-2.5 hover:border-dark transition";
+            
+            const iconSlug = (item.icon && item.icon.length > 2) ? item.icon : (item.category || 'sneakers');
+            const thumbHtml = item.thumbnail 
+                ? `<img src="${item.thumbnail}" class="w-10 h-10 object-cover rounded-xl border border-black/10 flex-shrink-0">`
+                : `<div class="w-10 h-10 rounded-xl bg-dark flex items-center justify-center p-1.5 flex-shrink-0"><img src="/static/images/icons/${iconSlug}.svg" class="w-7 h-7 object-contain" alt="Footwear"></div>`;
+
+            card.innerHTML = `
+                <div class="flex items-center space-x-2.5 min-w-0 flex-1 cursor-pointer" onclick="reopenScanById('${item.id}')">
+                    ${thumbHtml}
+                    <div class="min-w-0 flex-1">
+                        <div class="font-grotesk font-black text-dark text-xs truncate uppercase flex items-center space-x-1.5">
+                            <img src="/static/images/icons/${iconSlug}.svg" class="w-3.5 h-3.5 object-contain inline-block" alt="Icon">
+                            <span>${item.category_name}</span>
+                        </div>
+                        <div class="font-mono text-[10px] text-dark/40 mt-0.5">
+                            <span class="text-hyperblue font-bold">${item.confidence}% Match</span> &bull; <span>${item.timestamp}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-1 flex-shrink-0">
+                    <button onclick="reopenScanById('${item.id}')" class="px-2.5 py-1 bg-dark text-lime rounded-full text-[10px] font-grotesk font-bold uppercase transition">
+                        View
+                    </button>
+                    <button onclick="deleteSingleScan('${item.id}', event)" class="p-1 text-dark/30 hover:text-coral transition text-xs" title="Delete scan">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            `;
+            list.appendChild(card);
+        });
+
+        if (typeof updateNavHistoryBadge === 'function') {
+            updateNavHistoryBadge();
+        }
+    }
+
+    function reopenScanById(scanId) {
+        const history = JSON.parse(localStorage.getItem('footwear_scans') || '[]');
+        const item = history.find(s => String(s.id) === String(scanId));
+        if (!item || !item.full_data) {
+            showError("Could not retrieve scan details from history.");
+            return;
+        }
+
+        if (item.thumbnail) {
+            previewImg.src = item.thumbnail;
+            previewSection.classList.remove('hidden');
+        }
+
+        renderResults(item.full_data);
+        resultsContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function clearScanHistory() {
+        if (confirm("Clear recent scans?")) {
+            localStorage.removeItem('footwear_scans');
+            loadScanHistory();
+            if (typeof updateNavHistoryBadge === 'function') {
+                updateNavHistoryBadge();
+            }
+        }
+    }
+
+    window.reopenScanById = reopenScanById;
+    window.loadScanHistory = loadScanHistory;
+
+    // ==================== 4. Interactive Longevity Calculator ====================
+    function updateLongevityCalc() {
+        const activitySelect = document.getElementById('calc-activity');
+        const kmSlider = document.getElementById('calc-km-slider');
+        const kmValue = document.getElementById('calc-km-val');
+        const lifespanMonths = document.getElementById('calc-res-months');
+        const cushionHealth = document.getElementById('calc-res-health');
+        const healthBar = document.getElementById('calc-res-bar');
+        const replacementDate = document.getElementById('calc-res-date');
+        const tipText = document.getElementById('calc-res-tip');
+
+        if (!kmSlider) return;
+
+        const weeklyKm = parseFloat(kmSlider.value);
+        kmValue.innerText = weeklyKm + ' km/wk';
+
+        let maxLifespanKm = 700;
+        let tip = "Standard training shoe rotation recommended.";
+
+        switch(activitySelect.value) {
+            case 'supershoe':
+                maxLifespanKm = 350;
+                tip = "PEBAX foams and thin outsoles fatigue rapidly after 300km.";
+                break;
+            case 'trainer':
+                maxLifespanKm = 750;
+                tip = "Daily dual-density midsoles provide consistent cushioning. Rotate with a second pair to allow foam cells 24 hours to rebound.";
+                break;
+            case 'trail':
+                maxLifespanKm = 850;
+                tip = "Lug wear on abrasive asphalt accelerates outsole degradation; reserve deep tread for softer terrain.";
+                break;
+            case 'leather':
+                maxLifespanKm = 1400;
+                tip = "Resoleable welted construction allows multi-year longevity with regular cedar tree insertion and wax balms.";
+                break;
+            case 'casual':
+                maxLifespanKm = 900;
+                tip = "Casual cupsole wear depends on heel-strike friction; inspect rubber outsoles for uneven wear.";
+                break;
+        }
+
+        const estimatedWeeks = Math.max(1, Math.round(maxLifespanKm / weeklyKm));
+        const estimatedMonths = (estimatedWeeks / 4.3).toFixed(1);
+        lifespanMonths.innerText = estimatedMonths + ' Mo';
+
+        const healthPercent = Math.min(100, Math.max(15, Math.round(100 - (weeklyKm * 0.8))));
+        cushionHealth.innerText = healthPercent + '%';
+        healthBar.style.width = healthPercent + '%';
+
+        const futureDate = new Date();
+        futureDate.setDate(futureDate.getDate() + (estimatedWeeks * 7));
+        const options = { month: 'short', year: 'numeric' };
+        replacementDate.innerText = futureDate.toLocaleDateString('en-US', options);
+        tipText.innerText = tip;
+    }
+    window.updateLongevityCalc = updateLongevityCalc;
+
+    // ==================== 5. FAQ Accordion Handler ====================
+    function toggleFaqAccordion(btn) {
+        const answer = btn.nextElementSibling;
+        const arrow = btn.querySelector('.faq-arrow');
+        const isOpen = !answer.classList.contains('hidden');
+
+        document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.faq-arrow').forEach(el => el.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+            answer.classList.remove('hidden');
+            if (arrow) arrow.classList.add('rotate-180');
+        }
+    }
+    window.toggleFaqAccordion = toggleFaqAccordion;
+</script>
+{% endblock %}
+
+{% block footer %}
+<!-- Dedicated Flagship Home Experience Footer -->
+<footer class="bg-dark text-white border-t border-white/10 mt-20 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <!-- Main Footer Navigation & Technology Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+            
+            <!-- Brand Column -->
+            <div class="md:col-span-4 space-y-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-full bg-lime text-dark flex items-center justify-center font-display font-black text-xs">
+                        FA
+                    </div>
+                    <span class="font-display font-black text-xl tracking-tight text-white">Footwear<span class="text-lime">AI</span></span>
+                </div>
+                <p class="font-display text-2xl font-black text-white uppercase tracking-tight leading-snug">
+                    "THE FUTURE OF EVERY STEP."
+                </p>
+                <p class="text-xs text-white/50 max-w-sm leading-relaxed font-sans">
+                    Autonomous computer vision platform unifying footwear reverse search, material degradation telemetry, and multi-portal retail arbitrage.
+                </p>
+                <div class="pt-2 flex items-center space-x-2 font-mono text-[11px] text-lime">
+                    <span class="w-2 h-2 rounded-full bg-lime animate-ping"></span>
+                    <span>1,280-D Latent Inference Engine Online</span>
+                </div>
+            </div>
+
+            <!-- Quick Jump Directory -->
+            <div class="md:col-span-3 space-y-3 font-sans">
+                <h4 class="font-mono font-bold text-xs uppercase tracking-widest text-lime">Platform Directory</h4>
+                <ul class="text-xs space-y-2 text-white/70">
+                    <li><a href="#scanner-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>AI Visual Scanner</span></a></li>
+                    <li><a href="#materials-lab-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>Materials Intelligence Lab</span></a></li>
+                    <li><a href="#pipeline-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>6-Stage Inference Pipeline</span></a></li>
+                    <li><a href="#xray-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>Shoe X-Ray & Anatomy</span></a></li>
+                    <li><a href="#style-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>Style Discovery Grid</span></a></li>
+                    <li><a href="#trends-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>2026 Trend Forecast</span></a></li>
+                    <li><a href="#longevity-tool-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>Shoe Lifespan Calculator</span></a></li>
+                    <li><a href="#faq-section" class="hover:text-lime transition flex items-center space-x-1.5"><span>&rarr;</span><span>FAQ & Help Center</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Exploration Channels -->
+            <div class="md:col-span-2 space-y-3 font-sans">
+                <h4 class="font-mono font-bold text-xs uppercase tracking-widest text-lime">Dedicated Hubs</h4>
+                <ul class="text-xs space-y-2 text-white/70">
+                    <li><a href="/catalog" class="hover:text-lime transition flex items-center space-x-1.5"><span>&bull;</span><span>Style Catalog</span></a></li>
+                    <li><a href="/shop" class="hover:text-lime transition flex items-center space-x-1.5"><span>&bull;</span><span>Shopping Hub</span></a></li>
+                    <li><a href="/care" class="hover:text-lime transition flex items-center space-x-1.5"><span>&bull;</span><span>Shoe Care Lab</span></a></li>
+                    <li><a href="/about" class="hover:text-lime transition flex items-center space-x-1.5"><span>&bull;</span><span>Neural Architecture</span></a></li>
+                    <li><a href="/api/info" class="hover:text-lime transition flex items-center space-x-1.5"><span>&bull;</span><span>REST API JSON</span></a></li>
+                    <li><a href="/health" class="hover:text-lime transition flex items-center space-x-1.5"><span>&bull;</span><span>Liveness Status</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Drop Radar Newsletter Box -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="font-mono font-bold text-xs uppercase tracking-widest text-lime">Drop Radar</h4>
+                <p class="text-xs text-white/50 leading-relaxed font-sans">
+                    Get alerted when rare silhouettes, price drops, or new neural models are deployed.
+                </p>
+                <form onsubmit="event.preventDefault(); alert('Subscribed to FootwearAI Drop Radar!');" class="space-y-2">
+                    <input type="email" placeholder="Your email address..." required class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder:text-white/40 focus:outline-none focus:ring-1 focus:ring-lime font-sans">
+                    <button type="submit" class="w-full py-2.5 rounded-xl bg-lime hover:bg-[#b8eb00] text-dark font-display font-bold text-xs uppercase tracking-wider transition">
+                        Join Radar &rarr;
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Creator Signature & Social Profile Badges -->
+        <div class="pt-2 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3.5">
+                <div class="relative">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-lime to-emerald-400 p-0.5 shadow-glow-lime">
+                        <div class="w-full h-full bg-dark rounded-[14px] flex items-center justify-center font-display font-black text-lime text-xs">
+                            ME
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-lime border-2 border-dark flex items-center justify-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-dark"></span>
+                    </span>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-display font-black text-sm uppercase tracking-wider text-white">Created by <span class="text-lime">ME</span></span>
+                        <span class="px-2 py-0.5 rounded-full bg-white/10 text-[10px] font-mono text-lime border border-lime/30 font-bold uppercase">Lead Architect</span>
+                    </div>
+                    <p class="text-[11px] text-white/50 font-sans">Full-Stack AI & Computer Vision Engineer • Next-Gen 3D Footwear Platform</p>
+                </div>
+            </div>
+
+            <!-- Social Profile Action Buttons / Tags -->
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-lime transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-glow-lime">
+                    <svg class="w-4 h-4 text-white group-hover:text-lime transition" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Code Repository</span>
+                        <span class="text-xs font-display font-bold text-white group-hover:text-lime transition">GitHub Profile</span>
+                    </div>
+                    <span class="text-xs text-lime opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-hyperblue transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-[0_0_20px_rgba(36,87,255,0.3)]">
+                    <svg class="w-4 h-4 text-[#0077b5] group-hover:text-white transition" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Professional Network</span>
+                        <span class="text-xs font-display font-bold text-white group-hover:text-hyperblue transition">LinkedIn Profile</span>
+                    </div>
+                    <span class="text-xs text-hyperblue opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40">
+            <p>&copy; 2026 FootwearAI Inc. Flagship Experience Edition. Designed for next-gen footwear discovery.</p>
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0 font-mono text-[10px]">
+                <span class="text-lime">● ALL SYSTEMS OPERATIONAL</span>
+                <span>KERAS // TF2.15 // 1280-D</span>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

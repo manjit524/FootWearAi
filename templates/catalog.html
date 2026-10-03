@@ -1,0 +1,342 @@
+{% extends "base.html" %}
+
+{% block title %}Footwear Style Catalog & Encyclopedia (33+ Categories) — FootwearAI{% endblock %}
+
+{% block content %}
+<div class="space-y-8 pt-4">
+
+    <!-- Header Banner -->
+    <div class="relative bg-[#111111] rounded-3xl p-8 sm:p-12 text-white overflow-hidden border border-white/10 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <!-- Background Ambient Glow -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#C8FF00]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-[#2457FF]/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl space-y-3">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-[#C8FF00] animate-pulse"></span>
+                <span class="text-[11px] font-mono font-bold tracking-widest uppercase text-[#C8FF00]">CATALOG ARCHIVE // 33+ MODELS</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-display font-black tracking-tight leading-tight text-white">
+                Footwear Styles & Anatomy Index
+            </h1>
+            <p class="text-white/70 text-xs sm:text-sm leading-relaxed max-w-xl">
+                Browse our exhaustive footwear taxonomy spanning <strong class="text-white">{{ total_count }} distinct shoe categories</strong> across 7 style departments. Discover dress codes, silhouette anatomy, outfit pairing formulas, and verified retailers.
+            </p>
+        </div>
+        <div class="relative z-10 flex items-center space-x-3 shrink-0">
+            <a href="/" class="px-6 py-3.5 rounded-full bg-[#C8FF00] hover:bg-[#b8eb00] text-[#111111] font-display font-bold text-xs uppercase tracking-wider shadow-lg hover:shadow-[#C8FF00]/30 transition-all inline-flex items-center space-x-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path></svg>
+                <span>Launch Scanner</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="bg-white p-5 sm:p-6 rounded-3xl border border-black/[0.08] shadow-sm space-y-4">
+        <!-- Search Input -->
+        <div class="relative">
+            <input type="text" id="catalog-search" oninput="filterCatalog()" placeholder="Search any footwear style, brand, occasion, or material (e.g., Chelsea, Wedding, Oxford, Running, Suede)..." class="w-full pl-12 pr-4 py-3.5 bg-black/[0.03] border border-black/10 rounded-2xl text-sm font-medium text-[#111111] placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-[#C8FF00] focus:border-[#111111] focus:bg-white transition">
+            <svg class="w-5 h-5 text-black/40 absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </div>
+
+        <!-- Department Tabs -->
+        <div class="flex flex-wrap gap-2 pt-1" id="group-filter-buttons">
+            <button onclick="setGroupFilter('all')" class="group-btn active px-4 py-2 rounded-full text-xs font-display font-bold transition bg-[#111111] text-white shadow-xs" data-group="all">
+                All Categories ({{ total_count }})
+            </button>
+            {% for g_key, g_val in macro_groups.items() %}
+            <button onclick="setGroupFilter('{{ g_key }}')" class="group-btn px-4 py-2 rounded-full text-xs font-display font-medium text-black/70 bg-black/[0.05] hover:bg-black/[0.1] hover:text-black transition flex items-center space-x-1.5" data-group="{{ g_key }}">
+                <img src="/static/images/icons/{{ g_key }}.svg" class="w-4 h-4 object-contain inline-block" alt="{{ g_val.name }}">
+                <span>{{ g_val.name }}</span>
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Active Count Indicator -->
+    <div class="flex items-center justify-between text-xs text-black/50 px-2 font-mono">
+        <span>SHOWING <strong id="visible-count" class="text-[#111111] font-bold font-sans">{{ total_count }}</strong> STYLES</span>
+        <span class="hidden sm:inline">CLICK CARDS FOR SPECIFICATIONS & RETAIL</span>
+    </div>
+
+    <!-- Category Cards Grid -->
+    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for cat in catalog_data %}
+        <div class="shoe-card bg-white rounded-3xl border border-black/[0.08] shadow-sm overflow-hidden flex flex-col justify-between hover:border-black/20 hover:shadow-xl transition-all duration-300 group" data-group="{{ cat.group }}" data-search="{{ (cat.name + ' ' + cat.group_name + ' ' + cat.vibe + ' ' + cat.occasion + ' ' + cat.style_tips + ' ' + (cat.stores | join(' '))) | lower }}">
+            
+            <!-- Card Header -->
+            <div class="p-6 border-b border-black/[0.05] bg-black/[0.015] flex items-start justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-14 h-14 p-2.5 bg-white rounded-2xl shadow-xs border border-black/[0.06] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <img src="/static/images/icons/{{ cat.group }}.svg" class="w-9 h-9 object-contain" alt="{{ cat.name }}">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-[#2457FF]">{{ cat.group_name }}</span>
+                        <h2 class="text-lg font-display font-bold text-[#111111] leading-tight">{{ cat.name }}</h2>
+                        <span class="text-[11px] text-black/50 italic block mt-0.5">{{ cat.vibe }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-6 space-y-4 flex-1 flex flex-col justify-between text-xs">
+                <p class="text-black/70 leading-relaxed font-sans">
+                    {{ cat.tagline }}
+                </p>
+
+                <div class="space-y-3">
+                    <div class="p-3.5 rounded-2xl bg-black/[0.025] border border-black/[0.05]">
+                        <span class="flex items-center space-x-1.5 font-display font-bold text-[#111111] mb-1">
+                            <svg class="w-3.5 h-3.5 text-[#2457FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                            <span>How to Style:</span>
+                        </span>
+                        <p class="text-black/70 leading-relaxed">{{ cat.style_tips }}</p>
+                    </div>
+
+                    <div>
+                        <span class="flex items-center space-x-1.5 font-display font-bold text-[#111111] mb-1">
+                            <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Best Occasions:</span>
+                        </span>
+                        <span class="inline-block px-3 py-1 bg-[#C8FF00]/25 text-[#111111] rounded-full font-bold text-[11px] border border-[#C8FF00]/40">{{ cat.occasion }}</span>
+                    </div>
+
+                    <div>
+                        <span class="flex items-center space-x-1.5 font-display font-bold text-[#111111] mb-1">
+                            <svg class="w-3.5 h-3.5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            <span>Material Care:</span>
+                        </span>
+                        <p class="text-black/60 leading-relaxed">{{ cat.care_guide }}</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3 border-t border-black/[0.06] text-black/60 font-mono text-[11px]">
+                        <span>PRICE RANGE:</span>
+                        <span class="font-bold text-[#111111] text-xs">{{ cat.price_range }}</span>
+                    </div>
+                </div>
+
+                <!-- Stores & Action Links -->
+                <div class="pt-4 border-t border-black/[0.06] space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-black/40">AVAILABLE AT:</span>
+                        <span class="text-[11px] text-black/60 truncate max-w-[180px] font-medium">{{ cat.stores | join(', ') }}</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 pt-1 font-display">
+                        <a href="{{ cat.links['Amazon'] }}" target="_blank" class="text-center py-2 px-2 border border-black/10 rounded-xl text-[11px] font-bold text-[#111111] hover:bg-[#111111] hover:text-white transition">
+                            Amazon
+                        </a>
+                        <a href="{{ cat.links['Myntra'] }}" target="_blank" class="text-center py-2 px-2 border border-black/10 rounded-xl text-[11px] font-bold text-[#111111] hover:bg-[#111111] hover:text-white transition">
+                            Myntra
+                        </a>
+                        <a href="{{ cat.links['Google Shopping'] }}" target="_blank" class="text-center py-2 px-2 bg-[#111111] text-white rounded-xl text-[11px] font-bold hover:bg-[#C8FF00] hover:text-[#111111] transition">
+                            Shop All &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- No Results State -->
+    <div id="no-results" class="hidden bg-white rounded-3xl p-12 text-center border border-black/[0.08] shadow-sm space-y-4">
+        <div class="w-16 h-16 mx-auto p-4 bg-black/5 rounded-2xl flex items-center justify-center text-dark">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+        <h3 class="text-xl font-display font-bold text-[#111111]">No Footwear Category Matches Your Search</h3>
+        <p class="text-xs text-black/50 max-w-md mx-auto">Try searching for broader keywords like "boots", "formal", "running", or "summer".</p>
+        <button onclick="resetFilters()" class="px-5 py-2.5 bg-[#111111] text-white text-xs font-display font-bold rounded-full hover:bg-[#C8FF00] hover:text-[#111111] transition">
+            Reset Filters
+        </button>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let activeGroup = 'all';
+
+    function setGroupFilter(group) {
+        activeGroup = group;
+
+        // Update button styles
+        document.querySelectorAll('.group-btn').forEach(btn => {
+            if (btn.getAttribute('data-group') === group) {
+                btn.className = "group-btn active px-4 py-2 rounded-full text-xs font-display font-bold transition bg-[#111111] text-white shadow-xs";
+            } else {
+                btn.className = "group-btn px-4 py-2 rounded-full text-xs font-display font-medium text-black/70 bg-black/[0.05] hover:bg-black/[0.1] hover:text-black transition";
+            }
+        });
+
+        filterCatalog();
+    }
+
+    function filterCatalog() {
+        const query = document.getElementById('catalog-search').value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.shoe-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const cardGroup = card.getAttribute('data-group');
+            const cardSearch = card.getAttribute('data-search');
+
+            const matchesGroup = (activeGroup === 'all' || cardGroup === activeGroup);
+            const matchesQuery = (!query || cardSearch.includes(query));
+
+            if (matchesGroup && matchesQuery) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('visible-count').innerText = visibleCount;
+        const noResults = document.getElementById('no-results');
+        if (visibleCount === 0) {
+            noResults.classList.remove('hidden');
+        } else {
+            noResults.classList.add('hidden');
+        }
+    }
+
+    function resetFilters() {
+        document.getElementById('catalog-search').value = '';
+        setGroupFilter('all');
+    }
+</script>
+{% endblock %}
+
+{% block footer %}
+<!-- Dedicated Footwear Catalog & Encyclopedia Footer -->
+<footer class="bg-dark text-white border-t border-white/10 mt-20 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <!-- Top Catalog Stats & Classification Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10">
+            <div class="md:col-span-5 space-y-4">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-full bg-lime text-dark flex items-center justify-center font-display font-black text-xs">
+                        FA
+                    </div>
+                    <span class="font-display font-black text-xl tracking-tight text-white">Footwear<span class="text-lime">AI</span> <span class="text-xs text-white/50 font-mono font-normal">// CATALOG ARCHIVE</span></span>
+                </div>
+                <h3 class="font-display text-2xl font-black text-white uppercase tracking-tight">
+                    The Living Footwear Encyclopedia.
+                </h3>
+                <p class="text-xs text-white/60 max-w-md leading-relaxed font-sans">
+                    Indexed across 33+ specialized footwear silhouettes spanning athletic performance, heritage formalwear, outdoor rugged footwear, and regional artisanal traditions.
+                </p>
+                <div class="flex items-center space-x-3 text-xs font-mono pt-2">
+                    <span class="px-2.5 py-1 rounded-lg bg-white/10 text-lime font-bold">33+ Syles</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/10 text-white/80 font-bold">7 Macro Departments</span>
+                    <span class="px-2.5 py-1 rounded-lg bg-white/10 text-hyperblue font-bold">98.4% Accuracy</span>
+                </div>
+            </div>
+
+            <!-- Department Directory Matrix -->
+            <div class="md:col-span-4 space-y-3">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-lime font-bold">Taxonomy Quick Directory</h4>
+                <div class="grid grid-cols-2 gap-2 text-xs font-sans text-white/70">
+                    <a href="/catalog?dept=formal" class="hover:text-lime transition flex items-center space-x-1.5">
+                        <span class="text-white/40">&rarr;</span>
+                        <span>Formal & Dress</span>
+                    </a>
+                    <a href="/catalog?dept=athletic" class="hover:text-lime transition flex items-center space-x-1.5">
+                        <span class="text-white/40">&rarr;</span>
+                        <span>Sneakers & Runners</span>
+                    </a>
+                    <a href="/catalog?dept=boots" class="hover:text-lime transition flex items-center space-x-1.5">
+                        <span class="text-white/40">&rarr;</span>
+                        <span>Boots & Rugged</span>
+                    </a>
+                    <a href="/catalog?dept=casual" class="hover:text-lime transition flex items-center space-x-1.5">
+                        <span class="text-white/40">&rarr;</span>
+                        <span>Casual Slip-ons</span>
+                    </a>
+                    <a href="/catalog?dept=open" class="hover:text-lime transition flex items-center space-x-1.5">
+                        <span class="text-white/40">&rarr;</span>
+                        <span>Sandals & Slides</span>
+                    </a>
+                    <a href="/catalog?dept=ethnic" class="hover:text-lime transition flex items-center space-x-1.5">
+                        <span class="text-white/40">&rarr;</span>
+                        <span>Ethnic & Mojaris</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Classification Engine -->
+            <div class="md:col-span-3 space-y-3">
+                <h4 class="font-mono text-xs uppercase tracking-widest text-lime font-bold">Model Coverage</h4>
+                <p class="text-xs text-white/50 leading-relaxed font-sans">
+                    Every taxonomy profile contains anatomical breakdowns, lacing mechanics, dress code pairings, and verified purchase destinations.
+                </p>
+                <a href="/" class="inline-flex items-center space-x-2 text-xs font-display font-bold text-lime hover:underline uppercase tracking-wider pt-1">
+                    <span>Scan A Shoe Now</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Creator Signature & Social Profile Badges -->
+        <div class="pt-2 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3.5">
+                <div class="relative">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-lime to-emerald-400 p-0.5 shadow-glow-lime">
+                        <div class="w-full h-full bg-dark rounded-[14px] flex items-center justify-center font-display font-black text-lime text-xs">
+                            ME
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-lime border-2 border-dark flex items-center justify-center">
+                        <span class="w-1.5 h-1.5 rounded-full bg-dark"></span>
+                    </span>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-display font-black text-sm uppercase tracking-wider text-white">Created by <span class="text-lime">ME</span></span>
+                        <span class="px-2 py-0.5 rounded-full bg-white/10 text-[10px] font-mono text-lime border border-lime/30 font-bold uppercase">Lead Architect</span>
+                    </div>
+                    <p class="text-[11px] text-white/50 font-sans">Full-Stack AI & Computer Vision Engineer • Next-Gen 3D Footwear Platform</p>
+                </div>
+            </div>
+
+            <!-- Social Buttons -->
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-lime transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-glow-lime">
+                    <svg class="w-4 h-4 text-white group-hover:text-lime transition" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Code Repository</span>
+                        <span class="text-xs font-display font-bold text-white group-hover:text-lime transition">GitHub Profile</span>
+                    </div>
+                    <span class="text-xs text-lime opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="group px-4 py-2.5 rounded-2xl bg-white/5 hover:bg-white/15 border border-white/15 hover:border-hyperblue transition-all duration-300 flex items-center space-x-2.5 shadow-sm hover:shadow-[0_0_20px_rgba(36,87,255,0.3)]">
+                    <svg class="w-4 h-4 text-[#0077b5] group-hover:text-white transition" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[9px] font-mono uppercase text-white/50 leading-tight">Professional Network</span>
+                        <span class="text-xs font-display font-bold text-white group-hover:text-hyperblue transition">LinkedIn Profile</span>
+                    </div>
+                    <span class="text-xs text-hyperblue opacity-0 group-hover:opacity-100 transform translate-x-[-4px] group-hover:translate-x-0 transition">&rarr;</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40">
+            <p>&copy; 2026 FootwearAI Inc. Catalog Archive Edition. Curated with precision.</p>
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0 font-mono text-[10px]">
+                <span class="text-lime">● CATALOG DB SYNCED</span>
+                <span>33/33 CLASSES ONLINE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

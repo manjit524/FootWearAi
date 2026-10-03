@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Slender Stiletto Heel -->
+  <path d="M49 32L46 51H49L52 32H49Z" fill="#111111"/>
+  <rect x="46" y="50" width="3.5" height="2" rx="0.5" fill="#FF5C5C"/>
+  <!-- Arch & Red Sole Accent -->
+  <path d="M12 47C20 47 26 44 32 37L44 26C47 23 50 25 52 28L54 33H48L40 37C34 41 26 45 14 46L12 47Z" fill="#FF5C5C"/>
+  <!-- Pointed Toe Pump Upper -->
+  <path d="M6 46C9 45 13 43 18 39L28 30C32 26 36 22 41 22C46 22 49 25 51 28L54 33C52 32 48 30 44 26C38 31 30 38 18 43L10 46C7.5 46.5 6 46 6 46Z" fill="#1A1A1A"/>
+  <!-- Glossy Highlight / Edge Light -->
+  <path d="M7 45.5C12 44.5 22 39 30 31L38 24" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Heel Counter -->
+  <path d="M44 24C47 24 50 26 52 30V33H48L44 26V24Z" fill="#2E2E2E"/>
+</svg>

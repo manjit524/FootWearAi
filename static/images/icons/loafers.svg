@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Stacked Dress Heel -->
+  <path d="M43 45H54C55.5 45 56 46 56 48H43V45Z" fill="#111111"/>
+  <rect x="44" y="48" width="11" height="2" fill="#C8FF00"/>
+  <!-- Thin Leather Sole -->
+  <path d="M6 44H55C56 44 57 43 57 42H6C5.5 42 5.5 43.5 6 44Z" fill="#111111"/>
+  <!-- Polished Upper Body -->
+  <path d="M6 42C7 38 10 35 15 34L26 31C30 30 33 27 34 24L35 23H44C47 23 49 26 50 29L55 38C56.5 40 57 41 57 42H6Z" fill="#1F1F1F"/>
+  <!-- Apron Stitching Contour -->
+  <path d="M12 37C16 35 24 33 28 33C31 33 33 34 34 37" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="1.5 1.5"/>
+  <!-- Penny Loafer Saddle Strap with cutout -->
+  <path d="M28 31H34V37H28V31Z" fill="#2E2E2E"/>
+  <rect x="29.5" y="33" width="3" height="1.5" rx="0.75" fill="#C8FF00"/>
+  <!-- Topline Collar Curve -->
+  <path d="M34 24C37 27 41 28 45 28C47 28 49 27 50 25" stroke="#C8FF00" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

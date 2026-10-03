@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Casual Rubber Sole -->
+  <path d="M7 45C14 45 22 46 36 46H53C56 46 57 44 57 42H7C6 43 6 45 7 45Z" fill="#E8E8E8"/>
+  <path d="M7 45.5H53C55 45.5 56 47 53 47H10C7.5 47 6.5 46 7 45.5Z" fill="#111111"/>
+  <!-- Canvas Slip-On Upper -->
+  <path d="M7 42C8 38 11 35 16 34L28 32C31 31 34 27 35 24H44C47 24 49 26 50 29L55 38C56 40 57 41 57 42H7Z" fill="#242424"/>
+  <!-- Elastic Gore Triangle (Lime) -->
+  <polygon points="34,26 38,26 36,31" fill="#C8FF00"/>
+  <!-- Casual Contrast Trim -->
+  <path d="M7 42C14 42 32 42.5 57 42" stroke="#C8FF00" stroke-width="1.5"/>
+</svg>
